@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="styles.css" />
+	<title>One-Liners-JS</title>
+</head>
+
+<body class="grid-container">
+	<header id="header">
+		<div class="background-color">
+			<h1>JavaScript One-Liners to Use in Every Project</h1>
+			<div class="header-content">
+				<h3 class="header-text">
+					This web page is inspired by the www.freecodecamp.org article
+					<br />
+					Link:
+					<a href="https://www.freecodecamp.org/news/javascript-one-liners-to-use-in-every-project/" target="_blank">
+						JavaScript One-Liners
+						to Use in Every Project</a>
+				</h3>
+				<div class="header-image">
+					<img src="/Captura de pantalla de 2023-05-24 00-53-15.png" alt="image" />
+				</div>
+			</div>
+		</div>
+	</header>
+	<nav>
+		<div class="background-color">
+			Navigation
+		</div>
+	</nav>
+	<main>
+		<div class="background-color">
+
+			<!--? 1. How to Capitalize Text -->
+			<section class="">
+				<h3 class="section-title">1. How to Capitalize Text</h3>
+				<input type="text" id="inputText" placeholder="Enter a word" />
+
+				<button onclick="CapitalizeWord()">Capitalize</button>
+				<h3>Result: <span id="resultText" class="result-color"></span></h3>
+				<details>
+					<summary>Ver codigo</summary>
+					<img src="1.png" class="summary-image">
+				</details>
+			</section>
+
+			<!--? 2. How to Calculate Percent -->
+			<section class="">
+				<h3 class="section-title">2. How to Calculate Percent</h3>
+				<input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" />
+				<input type="number" id="inputValueNumber" placeholder="Enter a value" />
+				<button onclick="CalculatePercent()">Percentage</button>
+				<h3>Result:<span id="resultPercentage" class="result-color"></span></h3>
+			</section><br>
+
+			</section>
+
+			<!--? 3. How to Get a Random Element -->
+			<section class="">
+				<h3 class="section-title">3. How to Get a Random Element</h3>
+				<ul>
+					<li>
+						<h5>Select one checkbox</h5>
+					</li>
+				</ul>
+				<div class="checkbox">
+					<input type="checkbox" name="group" id="Names" onchange="HandleCheckboxChange('Names')" checked />
+					<label for="Names">Names (Martin, Maria, juan, Andrea)</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="group" id="Numbers" onchange="HandleCheckboxChange('Numbers')" />
+					<label for="Numbers">Numbers (0, 1, 2, 3, 5, 6, 7, 8, 9)</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="group" id="Colors" onchange="HandleCheckboxChange('Colors')" />
+					<label for="Colors">Colors (Blue, White, Red, Green, Gray, Pink)</label>
+				</div>
+				<br />
+				<button class="random-btn" onclick="randomItem()">
+					Random <span id="selectedCheckboxId"></span>
+				</button>
+				<br />
+				<h3>Result: <span id="resultRandom" class="result-color"></span></h3>
+			</section>
+
+			<!--? 4. How to Remove Duplicate Elements -->
+			<section class="">
+				<h3 class="section-title">4. How to Remove Duplicate Elements</h3>
+				<ul>
+					<li>
+						<h5>Select one checkbox</h5>
+					</li>
+				</ul>
+				<div class="checkbox">
+					<input type="checkbox" name="group2" id="Names-Duplicates" onchange="HandleCheckboxRepeat('Names-Duplicates')"
+						checked />
+					<label for="Names-Duplicates">Names (Martin, Martin, Maria, juan, Andrea, Andrea )</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="group2" id="Numbers-Duplicates"
+						onchange="HandleCheckboxRepeat('Numbers-Duplicates')" />
+					<label for="Numbers-Duplicates">Numbers (0, 0, 1, 2, 3, 5, 5, 6, 7, 8, 8, 9)</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="group2" id="Colors-Duplicates"
+						onchange="HandleCheckboxRepeat('Colors-Duplicates')" />
+					<label for="Colors-Duplicates">Colors (Blue, Blue, White, Red, Green, Green, Gray, Pink,
+						Pink)</label>
+				</div>
+				<br />
+				<button class="removeDuplicates-btn" onclick="NoRepeatItems()">
+					Remove <span id="selectedCheckboxIdDuplicates"></span>
+				</button>
+				<br />
+				<h3>Result: <span id="result-Duplicates" class="result-color"></span></h3>
+			</section>
+
+			<!--? 5. How to Sort Elements By Certain Property -->
+			<section class="">
+				<h3 class="section-title">5. How to Sort Elements By Certain Property</h3>
+				<pre>
+	lessons = [{position: 0,name: 'Intro',duration: 18},
+		   {position: 1,name: 'Basics', duration: 12},
+		   {position: 2,name: 'Advanced',duration: 15},
+				];
+				</pre>
+				<div>
+					<div class="radio">
+						<input type="radio" name="group3" id="position" onchange="HandleRadioChecked('position')" checked />
+						<label for="position">position</label>
+					</div>
+					<div class="radio">
+						<input type="radio" name="group3" id="name" onchange="HandleRadioChecked('name')" />
+						<label for="name">name</label>
+					</div>
+					<div class="radio">
+						<input type="radio" name="group3" id="duration" onchange="HandleRadioChecked('duration')" />
+						<label for="duration">duration</label>
+					</div>
+				</div>
+				<br />
+				<button class="sortBy-btn" onclick="SortLessons();">
+					Sort by <span id="selectedRadioSortedId"></span>
+				</button>
+				<br />
+				<h3>Result:<span id="result-Sort" class="result-color"></span></h3>
+			</section>
+		</div>
+
+	</main>
+
+	<footer class="background-color">Footer</footer>
+</body>
+<script src="scripts.js"></script>
+
+</html>
