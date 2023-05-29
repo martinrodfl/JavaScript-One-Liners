@@ -23,7 +23,7 @@ body {
 
 .grid-container {
 	margin: 5px auto;
-	grid-template-columns: 1fr;
+	grid-template-columns: 100%;
 	grid-template-rows: auto;
 	grid-template-areas:
 		"header"
@@ -31,7 +31,7 @@ body {
 		"main"
 		"footer";
 	padding: 0;
-	width: 98%;
+	width: 98vw;
 }
 
 .background-color {
@@ -82,23 +82,38 @@ footer {
 
 .header-content {
 	display: flex;
+	flex-direction: column;
 }
 
 .header-text {
-	padding: 0 5px;
+	/* padding: 0 5px; */
 	display: flex;
-	width: 50%;
 	flex-direction: column;
+	justify-content: center;
 }
 
 .header-image {
 	display: flex;
-	width: 50%;
 	justify-content: center;
 }
 
 .header-image>img {
-	width: 70%;
+	width: 100%;
+	border-radius: 4px;
+}
+
+input[type="text"], input[type="number"] {
+	height: 25px;
+	border: none;
+	border-radius: 3px;
+	margin-bottom: 4px;
+	padding-left: 5px;
+}
+
+button {
+	height: 27px;
+	border: none;
+	border-radius: 3px;
 }
 
 section {
@@ -113,6 +128,10 @@ section {
 .result-color {
 	color: rgb(250, 180, 75);
 	max-width: 250px;
+}
+
+.result-color ul {
+	font-size: small;
 }
 
 details {
@@ -147,6 +166,11 @@ details[open] summary::before {
 	border-radius: 5px;
 }
 
-pre {
-	width: 100px;
+.image-container {
+	display: flex;
+}
+
+.image-container img {
+	display: flex;
+	width: 100%;
 }

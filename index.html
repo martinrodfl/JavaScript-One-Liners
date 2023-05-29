@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
 	<link rel="stylesheet" href="styles.css" />
 	<title>One-Liners-JS</title>
 </head>
@@ -56,7 +56,11 @@
 				<input type="number" id="inputValueNumber" placeholder="Enter a value" />
 				<button onclick="CalculatePercent()">Percentage</button>
 				<h3>Result:<span id="resultPercentage" class="result-color"></span></h3>
-			</section><br>
+				<details>
+					<summary>Ver codigo</summary>
+					<img src="2.png" class="summary-image">
+				</details>
+			</section>
 
 			</section>
 
@@ -86,6 +90,10 @@
 				</button>
 				<br />
 				<h3>Result: <span id="resultRandom" class="result-color"></span></h3>
+				<details>
+					<summary>Ver codigo</summary>
+					<img src="3.png" class="summary-image">
+				</details>
 			</section>
 
 			<!--? 4. How to Remove Duplicate Elements -->
@@ -118,17 +126,18 @@
 				</button>
 				<br />
 				<h3>Result: <span id="result-Duplicates" class="result-color"></span></h3>
+				<details>
+					<summary>Ver codigo</summary>
+					<img src="4.png" class="summary-image">
+				</details>
 			</section>
 
 			<!--? 5. How to Sort Elements By Certain Property -->
 			<section class="">
 				<h3 class="section-title">5. How to Sort Elements By Certain Property</h3>
-				<pre>
-	lessons = [{position: 0,name: 'Intro',duration: 18},
-		   {position: 1,name: 'Basics', duration: 12},
-		   {position: 2,name: 'Advanced',duration: 15},
-				];
-				</pre>
+				<div class="image-container">
+					<img src="lessons.png">
+				</div>
 				<div>
 					<div class="radio">
 						<input type="radio" name="group3" id="position" onchange="HandleRadioChecked('position')" checked />
@@ -149,9 +158,12 @@
 				</button>
 				<br />
 				<h3>Result:<span id="result-Sort" class="result-color"></span></h3>
+				<details>
+					<summary>Ver codigo</summary>
+					<img src="5.png" class="summary-image">
+				</details>
 			</section>
 		</div>
-
 	</main>
 
 	<footer class="background-color">Footer</footer>
