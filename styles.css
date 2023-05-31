@@ -1,10 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
 	box-sizing: border-box;
 	background-color: black;
 	color: aliceblue;
-	font-family: 'Kodchasan', sans-serif;
+	/* font-family: 'Kodchasan', sans-serif; */
+	font-family: 'Poppins', sans-serif;
 }
 
 /* .grid-container {
@@ -72,10 +73,6 @@ main {
 	grid-area: main;
 }
 
-aside {
-	grid-area: aside;
-}
-
 footer {
 	grid-area: footer;
 }
@@ -114,14 +111,20 @@ button {
 	height: 27px;
 	border: none;
 	border-radius: 3px;
+	padding: 0 10%;
+	background-color: rgb(0, 140, 255);
+	color: aliceblue;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
 }
 
-section {
+article {
 	border-bottom: 1px solid aliceblue;
 	margin-bottom: 1rem;
+	line-height: 2;
 }
 
-.section-title {
+.article-title {
 	color: rgb(231, 109, 109);
 }
 
@@ -173,4 +176,25 @@ details[open] summary::before {
 .image-container img {
 	display: flex;
 	width: 100%;
+}
+
+.summary-code {
+	width: 100%;
+	overflow: hidden;
+}
+
+pre {
+	border: 1px solid gray;
+	border-radius: 3px;
+	padding: 0 5px;
+	font-size: 13px;
+	word-break: break-all;
+	overflow-x: scroll;
+	background-color: rgba(37, 37, 37, 0.705);
+}
+
+.btn-clipboard {
+	position: relative;
+	right: 10px;
+	/* float: right; */
 }

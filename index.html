@@ -6,6 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
 	<link rel="stylesheet" href="styles.css" />
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<title>One-Liners-JS</title>
 </head>
 
@@ -37,21 +39,31 @@
 		<div class="background-color">
 
 			<!--? 1. How to Capitalize Text -->
-			<section class="">
-				<h3 class="section-title">1. How to Capitalize Text</h3>
+			<article class="">
+				<h3 class="article-title">1. How to Capitalize Text</h3>
 				<input type="text" id="inputText" placeholder="Enter a word" />
-
 				<button onclick="CapitalizeWord()">Capitalize</button>
 				<h3>Result: <span id="resultText" class="result-color"></span></h3>
 				<details>
 					<summary>Ver codigo</summary>
-					<img src="1.png" class="summary-image">
+					<div class="summary-code">
+						<h5>HTML</h5>
+						<button class="btn-clipboard" onclick="copiarCodigoPortapapeles('html1')"><i
+								class='bx bx-clipboard bx-tada'></i></button>
+						<pre id="html1">
+
+						</pre>
+						<h5>JavasScript</h5>
+						<button onclick="copiarCodigoPortapapeles('js1')"><i class='bx bx-clipboard bx-tada'></i></button>
+						<pre id="js1"></pre>
+					</div>
+					<!-- <img src="1.png" class="summary-image"> -->
 				</details>
-			</section>
+			</article>
 
 			<!--? 2. How to Calculate Percent -->
-			<section class="">
-				<h3 class="section-title">2. How to Calculate Percent</h3>
+			<article class="">
+				<h3 class="article-title">2. How to Calculate Percent</h3>
 				<input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" />
 				<input type="number" id="inputValueNumber" placeholder="Enter a value" />
 				<button onclick="CalculatePercent()">Percentage</button>
@@ -60,18 +72,13 @@
 					<summary>Ver codigo</summary>
 					<img src="2.png" class="summary-image">
 				</details>
-			</section>
+			</article>
 
-			</section>
+			</article>
 
 			<!--? 3. How to Get a Random Element -->
-			<section class="">
-				<h3 class="section-title">3. How to Get a Random Element</h3>
-				<ul>
-					<li>
-						<h5>Select one checkbox</h5>
-					</li>
-				</ul>
+			<article class="">
+				<h3 class="article-title">3. How to Get a Random Element</h3>
 				<div class="checkbox">
 					<input type="checkbox" name="group" id="Names" onchange="HandleCheckboxChange('Names')" checked />
 					<label for="Names">Names (Martin, Maria, juan, Andrea)</label>
@@ -94,16 +101,11 @@
 					<summary>Ver codigo</summary>
 					<img src="3.png" class="summary-image">
 				</details>
-			</section>
+			</article>
 
 			<!--? 4. How to Remove Duplicate Elements -->
-			<section class="">
-				<h3 class="section-title">4. How to Remove Duplicate Elements</h3>
-				<ul>
-					<li>
-						<h5>Select one checkbox</h5>
-					</li>
-				</ul>
+			<article class="">
+				<h3 class="article-title">4. How to Remove Duplicate Elements</h3>
 				<div class="checkbox">
 					<input type="checkbox" name="group2" id="Names-Duplicates" onchange="HandleCheckboxRepeat('Names-Duplicates')"
 						checked />
@@ -130,11 +132,11 @@
 					<summary>Ver codigo</summary>
 					<img src="4.png" class="summary-image">
 				</details>
-			</section>
+			</article>
 
 			<!--? 5. How to Sort Elements By Certain Property -->
-			<section class="">
-				<h3 class="section-title">5. How to Sort Elements By Certain Property</h3>
+			<article class="">
+				<h3 class="article-title">5. How to Sort Elements By Certain Property</h3>
 				<div class="image-container">
 					<img src="lessons.png">
 				</div>
@@ -162,12 +164,13 @@
 					<summary>Ver codigo</summary>
 					<img src="5.png" class="summary-image">
 				</details>
-			</section>
+			</article>
 		</div>
 	</main>
 
 	<footer class="background-color">Footer</footer>
 </body>
 <script src="scripts.js"></script>
+<script src="codeTexts.js"></script>
 
 </html>
