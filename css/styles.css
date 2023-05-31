@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	box-sizing: border-box;
 	background-color: black;
@@ -7,20 +11,6 @@ body {
 	/* font-family: 'Kodchasan', sans-serif; */
 	font-family: 'Poppins', sans-serif;
 }
-
-/* .grid-container {
-	margin: 0 auto;
-	padding: 0 10%;
-	display: grid;
-	width: 80vw;
-	height: 100vh;
-	grid-template-areas:
-		"header header "
-		"nav main "
-		"footer footer";
-	grid-template-columns: 15% auto;
-	grid-template-rows: .5fr 1fr 50px;
-} */
 
 .grid-container {
 	margin: 5px auto;
@@ -107,7 +97,7 @@ input[type="text"], input[type="number"] {
 	padding-left: 5px;
 }
 
-button {
+.btn-exercise {
 	height: 27px;
 	border: none;
 	border-radius: 3px;
@@ -142,21 +132,32 @@ details {
 }
 
 summary {
-	padding-bottom: 1rem;
 	cursor: pointer;
-	color: rgb(0, 156, 117);
+	color: rgb(65, 65, 65);
 	list-style-type: none;
 	list-style: none;
 	-webkit-list-style: none;
 	-moz-list-style: none;
+	display: block;
 }
 
-summary::before {
-	content: '\25B6';
-	float: right;
-	transition: transform 0.2s ease-in-out;
-	transform: rotate(180deg);
-	color: rgb(0, 156, 117);
+summary h5 {
+	display: flex;
+	justify-content: space-between;
+	width: 95%;
+	height: 2rem;
+	margin: 0 .5rem;
+	line-height: 2.5;
+}
+
+summary:hover {
+	color: rgb(54, 54, 54);
+	background-color: rgb(19, 172, 154);
+	border-radius: 4px;
+}
+
+summary:hover::before {
+	color: rgb(19, 172, 154);
 }
 
 details[open] summary::before {
@@ -187,14 +188,24 @@ pre {
 	border: 1px solid gray;
 	border-radius: 3px;
 	padding: 0 5px;
-	font-size: 13px;
+	font-size: .8rem;
 	word-break: break-all;
 	overflow-x: scroll;
 	background-color: rgba(37, 37, 37, 0.705);
 }
 
+.div-btn-clipboard {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+	align-items: center;
+}
+
 .btn-clipboard {
-	position: relative;
-	right: 10px;
-	/* float: right; */
+	background-color: transparent;
+	color: gray;
+	font-weight: 800;
+	border: 1px solid gray;
+	border-radius: 4px;
+	cursor: pointer;
 }
