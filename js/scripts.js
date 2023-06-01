@@ -1,6 +1,14 @@
+//IIFE para posicionar la pagina al inicio al recargarse
+(function () {
+  window.onload = function () {
+    window.scrollTo(0, 0);
+  };
+})();
+
 //* 1. How to Capitalize Text -------------------------------------------  */
 function CapitalizeWord() {
-  let inputValueText = document.getElementById('inputText').value;
+  let inputValueText;
+  inputValueText = document.getElementById('inputText').value;
   let capitalizedWord =
     inputValueText.charAt(0).toUpperCase() + inputValueText.slice(1);
 
@@ -83,23 +91,13 @@ function randomItem() {
 
   // Copiar el array de elementos para evitar modificar el original
   const itemsCopy = [...items];
-
   // Filtrar el array para eliminar el último elemento seleccionado
   const filteredItems = itemsCopy.filter((item) => item !== lastSelectedItem);
-
-  // if (filteredItems.length === 0) {
-  //   // Si no hay elementos disponibles después de filtrar, mostrar un mensaje
-  //   alert('Ya se han seleccionado todos los elementos disponibles');
-  //   return;
-  // }
-
   // Obtener un elemento aleatorio del array filtrado
   const getRandomItem =
     filteredItems[Math.floor(Math.random() * filteredItems.length)];
-
   // Actualizar el último elemento seleccionado
   lastSelectedItem = getRandomItem;
-
   // Mostrar el elemento seleccionado en el resultado
   document.getElementById('resultRandom').innerHTML = getRandomItem;
 }
