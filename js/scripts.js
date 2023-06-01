@@ -79,7 +79,6 @@ function showSelectedCheckboxId() {
     }
   });
   document.getElementById('selectedCheckboxId').innerHTML = selectedCheckboxId;
-  console.log(selectedCheckboxId);
 }
 
 let lastSelectedItem = '';
@@ -94,11 +93,6 @@ function randomItem() {
   const itemsCopy = [...items];
   // Filtrar el array para eliminar el último elemento seleccionado
   const filteredItems = itemsCopy.filter((item) => item !== lastSelectedItem);
-  // if (filteredItems.length === 0) {
-  //   // Si no hay elementos disponibles después de filtrar, mostrar un mensaje
-  //   alert('Ya se han seleccionado todos los elementos disponibles');
-  //   return;
-  // }
   // Obtener un elemento aleatorio del array filtrado
   const getRandomItem =
     filteredItems[Math.floor(Math.random() * filteredItems.length)];
