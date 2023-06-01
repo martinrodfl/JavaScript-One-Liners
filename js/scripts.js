@@ -1,6 +1,14 @@
+//IIFE para posicionar la pagina al inicio al recargarse
+(function () {
+  window.onload = function () {
+    window.scrollTo(0, 0);
+  };
+})();
+
 //* 1. How to Capitalize Text -------------------------------------------  */
 function CapitalizeWord() {
-  let inputValueText = document.getElementById('inputText').value;
+  let inputValueText;
+  inputValueText = document.getElementById('inputText').value;
   let capitalizedWord =
     inputValueText.charAt(0).toUpperCase() + inputValueText.slice(1);
 
@@ -24,7 +32,16 @@ function CalculatePercent() {
   );
 }
 //*  3. How to Get a Random Element ------------------------------------------- */
-var items = ['Martin', 'Maria', 'Juan', 'Andrea'];
+var items = [
+  'Martin',
+  'Andrea',
+  'Carlos',
+  'Sandra',
+  'Pedro',
+  'Maria',
+  'Juan',
+  'Patricia',
+];
 
 function HandleCheckboxChange(checkboxId) {
   let checkboxes = document.getElementsByName('group');
@@ -33,7 +50,16 @@ function HandleCheckboxChange(checkboxId) {
   });
 
   if (checkboxId === 'Names') {
-    items = ['Martin', 'Maria', 'Juan', 'Andrea'];
+    items = [
+      'Martin',
+      'Andrea',
+      'Carlos',
+      'Sandra',
+      'Pedro',
+      'Maria',
+      'Juan',
+      'Patricia',
+    ];
   } else if (checkboxId === 'Numbers') {
     items = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
   } else if (checkboxId === 'Colors') {
@@ -55,11 +81,24 @@ function showSelectedCheckboxId() {
   document.getElementById('selectedCheckboxId').innerHTML = selectedCheckboxId;
 }
 
+let lastSelectedItem = '';
+
 function randomItem() {
   if (items === '') {
-    alert('You must select a checkbox');
+    alert('Debes seleccionar al menos una opción');
+    return;
   }
-  const getRandomItem = items[Math.floor(Math.random() * items.length)];
+
+  // Copiar el array de elementos para evitar modificar el original
+  const itemsCopy = [...items];
+  // Filtrar el array para eliminar el último elemento seleccionado
+  const filteredItems = itemsCopy.filter((item) => item !== lastSelectedItem);
+  // Obtener un elemento aleatorio del array filtrado
+  const getRandomItem =
+    filteredItems[Math.floor(Math.random() * filteredItems.length)];
+  // Actualizar el último elemento seleccionado
+  lastSelectedItem = getRandomItem;
+  // Mostrar el elemento seleccionado en el resultado
   document.getElementById('resultRandom').innerHTML = getRandomItem;
 }
 showSelectedCheckboxId();
@@ -114,7 +153,6 @@ function showSelectedCheckboxIdRepeat() {
     if (checkbox.checked) {
       selectedCheckboxId = checkbox.id;
     }
-    console.log(selectedCheckboxId);
   });
   document.getElementById('selectedCheckboxIdDuplicates').innerHTML =
     selectedCheckboxId;
@@ -138,8 +176,6 @@ function NoRepeatItems() {
 
   const removeDuplicates = (items) => [...new Set(items)];
   document.getElementById('result-Duplicates').innerHTML =
-    removeAfterHyphen(selectedCheckboxId) +
-    ': ' +
     removeDuplicates(itemsDuplicates);
 }
 
