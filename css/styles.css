@@ -72,8 +72,6 @@ a:visited {
 	cursor: pointer;
 }
 
-
-
 header h1 {
 	margin: 0;
 	background-color: transparent;
@@ -135,6 +133,28 @@ article {
 	padding: .5rem;
 }
 
+article h3:nth-child(even) {
+	margin-top: 10px;
+}
+
+.remove-duplicates-article {
+	min-height: 490px;
+}
+
+.removes-duplicates-results-h3 {
+	min-height: 70px;
+	font-size: .9rem;
+	flex-wrap: wrap;
+}
+
+.sortBy-properties-article {
+	min-height: 567px;
+}
+
+.sortBy-properties-article .result-object {
+	min-height: 100px;
+}
+
 input[type="text"], input[type="number"] {
 	height: 25px;
 	border: none;
@@ -162,10 +182,15 @@ input[type="text"], input[type="number"] {
 .result-color {
 	color: rgb(216, 113, 29);
 	margin-left: 10px;
+	min-height: 54px;
+}
+
+.result-color ul {
+	margin: 5px 5px 10px 30px;
 }
 
 .result-color ul li {
-	font-size: .8rem;
+	font-size: .6rem;
 }
 
 .image-container {
@@ -248,7 +273,6 @@ details[open] summary::before {
 	max-width: 100%;
 	border-radius: 5px;
 }
-
 
 .summary-code {
 	width: 100%;
