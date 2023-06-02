@@ -7,12 +7,16 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/modal-styles.css" />
+
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<title>One-Liners-JS</title>
 </head>
 
 <body class="grid-container">
+	<div class="scrollToTop" onclick="window.scrollTo(0,0)">
+		<i class='bx bxs-chevrons-up bx-tada'></i>
+	</div>
 	<!--? Dialog-clipboard -->
 	<dialog class="dialog" id="myDialog">
 		<div class="dialog-body">
@@ -26,21 +30,17 @@
 	</dialog>
 	<!--? HEADER  -->
 	<header id="header">
-
 		<h1>JavaScript One-Liners to Use in Every Project</h1>
 		<div class="header-content">
-			<h3 class="header-text">
+			<h6 class="header-text">
 				This web page is inspired by the www.freecodecamp.org article
-				<br />
-				Link:
 				<a href="https://www.freecodecamp.org/news/javascript-one-liners-to-use-in-every-project/" target="_blank">
-					JavaScript One-Liners
+					<i class='bx bx-link'></i>JavaScript One-Liners
 					to Use in Every Project</a>
-			</h3>
+			</h6>
 			<div class="header-image">
 				<img src="images/header-image.png" alt="image" />
 			</div>
-		</div>
 		</div>
 	</header>
 
@@ -55,33 +55,31 @@
 	<main>
 		<!--* 1. How to Capitalize Text -->
 		<article class="">
-			<div class="article-content">
-				<h3 class="article-title">1. How to Capitalize Text</h3>
-				<input type="text" id="inputText" placeholder="Enter a word" required />
-				<button class="btn-exercise" onclick="CapitalizeWord()">Capitalize</button>
-				<h3>Result: <span id="resultText" class="result-color"></span></h3>
-				<details id="details-code">
-					<summary>
-						<h5>
-							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-					</summary>
-					<div class="summary-code">
-						<h5>HTML</h5>
-						<div class="div-btn-clipboard">
-							<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html1')"><i
-									class='bx bx-clipboard bx-tada'></i></button>
-						</div>
-						<pre id="html1">
-							</pre>
-						<h5>JavasScript</h5>
-						<div class="div-btn-clipboard">
-							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js1')"><i
-									class='bx bx-clipboard bx-tada'></i></button>
-						</div>
-						<pre id="js1"></pre>
+			<h3 class="article-title">1. How to Capitalize Text</h3>
+			<input type="text" id="inputText" placeholder="Enter a word" required />
+			<button class="btn-exercise" onclick="CapitalizeWord()">Capitalize</button>
+			<h3>Result: <span id="resultText" class="result-color"></span></h3>
+			<details class="details">
+				<summary>
+					<h5>
+						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+				</summary>
+				<div class="summary-code">
+					<h5>HTML</h5>
+					<div class="div-btn-clipboard">
+						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html1')"><i
+								class='bx bx-clipboard bx-tada'></i></button>
 					</div>
-				</details>
-			</div>
+					<pre id="html1">
+							</pre>
+					<h5>JavasScript</h5>
+					<div class="div-btn-clipboard">
+						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js1')"><i
+								class='bx bx-clipboard bx-tada'></i></button>
+					</div>
+					<pre id="js1"></pre>
+				</div>
+			</details>
 		</article>
 
 		<!--* 2. How to Calculate Percent -->
@@ -91,8 +89,7 @@
 			<input type="number" id="inputValueNumber" placeholder="Enter a value" />
 			<button class="btn-exercise" onclick=" CalculatePercent()">Percentage</button>
 			<h3>Result: <span id="resultPercentage" class="result-color"></span></h3>
-
-			<details>
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -142,7 +139,7 @@
 			</button>
 			<br />
 			<h3>Result: <span id="resultRandom" class="result-color"></span></h3>
-			<details>
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -190,7 +187,7 @@
 			</button>
 			<br />
 			<h3>Result: <span id="result-Duplicates" class="result-color"></span></h3>
-			<details>
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -239,7 +236,7 @@
 			</button>
 			<br />
 			<h3>Result:<span id="result-Sort" class="result-color"></span></h3>
-			<details>
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -265,7 +262,7 @@
 		<!--* 6. -->
 		<article class="">
 			<h3 class="article-title">6.sdfsdfsdfsdfsdfds</h3>
-			<details id="details-code">
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -291,7 +288,7 @@
 		<!--* 7. -->
 		<article class="">
 			<h3 class="article-title">7.sdfsdfsdfsdfsdfds</h3>
-			<details id="details-code">
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -317,7 +314,7 @@
 		<!--* 8. -->
 		<article class="">
 			<h3 class="article-title">8.sdfsdfsdfsdfsdfds</h3>
-			<details id="details-code">
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -343,7 +340,7 @@
 		<!--* 9. -->
 		<article class="">
 			<h3 class="article-title">9.sdfsdfsdfsdfsdfds</h3>
-			<details id="details-code">
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -369,7 +366,7 @@
 		<!--* 10. -->
 		<article class="">
 			<h3 class="article-title">10.sdfsdfsdfsdfsdfds</h3>
-			<details id="details-code">
+			<details class="details">
 				<summary>
 					<h5>
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
@@ -393,9 +390,12 @@
 		</article>
 	</main>
 	<footer>Footer</footer>
+	<div class="progress-container">
+		<progress id="scrollProgress" value="0" max="100"></progress>
+	</div>
 </body>
-<script src="js/scripts.js"></script>
+<script src="js/exerciseScripts.js"></script>
 <script src="js/codeTexts.js"></script>
-<script src="js/summary-arrow-toggle.js"></script>
+<script src="js/helpers.js"></script>
 
 </html>
