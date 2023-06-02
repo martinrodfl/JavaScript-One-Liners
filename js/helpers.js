@@ -45,7 +45,7 @@ var codeDetails = document.querySelectorAll('.details');
 
 codeDetails.forEach(function (details) {
   var arrowIcon = details.querySelector('.bx');
-
+  console.log(details.open);
   details.addEventListener('toggle', function () {
     if (details.open) {
       arrowIcon.classList.remove('bxs-left-arrow', 'bx-fade-left');
@@ -66,3 +66,15 @@ window.addEventListener('scroll', function () {
   var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
   scrollProgress.value = scrolledPercentage;
 });
+
+// function toggleSummaryText(event) {
+//   var details = event.target.closest('details');
+//   var isOpen = !details.open;
+//   console.log('isOpen:', isOpen);
+
+//   if (isOpen) {
+//     details.querySelector('summary h5').innerText = '<Hide code />';
+//   } else {
+//     details.querySelector('summary h5').innerText = '<See code />';
+//   }
+// }
