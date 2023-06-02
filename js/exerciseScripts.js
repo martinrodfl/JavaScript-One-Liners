@@ -1,10 +1,3 @@
-//IIFE para posicionar la pagina al inicio al recargarse
-(function () {
-  window.onload = function () {
-    window.scrollTo(0, 0);
-  };
-})();
-
 //* 1. How to Capitalize Text -------------------------------------------  */
 function CapitalizeWord() {
   let inputValueText;
