@@ -196,7 +196,7 @@ details[open] {
 }
 
 details:not([open]) {
-	max-height: 50px;
+	max-height: 70px;
 	transition: max-height 3s ease;
 }
 
@@ -207,7 +207,7 @@ summary {
 	list-style: none;
 	-webkit-list-style: none;
 	-moz-list-style: none;
-	display: block;
+	display: flex;
 	min-height: 60px;
 }
 
