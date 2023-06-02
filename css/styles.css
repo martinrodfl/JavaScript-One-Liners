@@ -190,6 +190,10 @@ details {
 	/* Aplica una transición suave a la propiedad max-height */
 }
 
+details summary::-webkit-details-marker {
+	display: none;
+}
+
 details[open] {
 	max-height: 1000px;
 	transition: max-height 3s ease;
