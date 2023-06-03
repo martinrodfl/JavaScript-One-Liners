@@ -29,8 +29,8 @@ body {
 	padding: 0;
 	background-color: var(--bg-color-light);
 	color: var(--text-color-light);
-	/* font-family: 'Kodchasan', sans-serif; */
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Kodchasan', sans-serif;
+	/* font-family: 'Poppins', sans-serif; */
 }
 
 .grid-container {
@@ -40,7 +40,6 @@ body {
 	width: 98vw;
 	background-color: var(--bg-color-light);
 	gap: 10px;
-	/* margin-bottom: 0px; */
 }
 
 header, nav, aside, footer, article {
@@ -137,9 +136,9 @@ article h3:nth-child(even) {
 	margin-top: 10px;
 }
 
-.remove-duplicates-article {
+/* .remove-duplicates-article {
 	min-height: 490px;
-}
+} */
 
 .removes-duplicates-results-h3 {
 	min-height: 70px;
@@ -147,12 +146,12 @@ article h3:nth-child(even) {
 	flex-wrap: wrap;
 }
 
-.sortBy-properties-article {
+/* .sortBy-properties-article {
 	min-height: 567px;
-}
+} */
 
 .sortBy-properties-article .result-object {
-	min-height: 100px;
+	min-height: 105px;
 }
 
 input[type="text"], input[type="number"] {
@@ -206,13 +205,10 @@ input[type="text"], input[type="number"] {
 /* DETAILS-SUMMARY ----------------------------*/
 
 details {
-	margin-bottom: 1rem;
+	/* margin-bottom: 1rem; */
 	overflow: hidden;
-	/* Oculta el contenido que se muestra gradualmente */
 	max-height: 50px;
-	/* Establece la altura inicial en cero */
 	transition: max-height 3s ease;
-	/* Aplica una transición suave a la propiedad max-height */
 }
 
 details summary::-webkit-details-marker {
