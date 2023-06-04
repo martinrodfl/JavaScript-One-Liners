@@ -5,6 +5,36 @@
   };
 })();
 
+//*? Format string to html ------------------------------------------------- */
+function FormatStringToHtml(code) {
+  if (code.startsWith('&')) {
+    let formatedCode = code.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    formatedCode = formatedCode.replace(
+      'class="result-color"',
+      'class="result-color"'
+    );
+    console.log('HTML FORMATEADO:', formatedCode);
+    return formatedCode;
+  } else {
+    console.log('JS SIN FORMATEAR:', code);
+    return code;
+  }
+}
+
+//* Format html to string(function without use)------------------------------------------------- */
+// function FormatHtmlToString(code) {
+//   if (code.startsWith('html')) {
+//     return code;
+//   } else {
+//     let formattedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+//     formattedCode = formattedCode.replace(
+//       'class="result-color"',
+//       'class="result-color"'
+//     );
+//     return formattedCode;
+//   }
+// }
+
 //*? Copy code to clipboard ------------------------------------------------- */
 
 function copyCodeToClipboard(elementId) {
@@ -15,15 +45,18 @@ function copyCodeToClipboard(elementId) {
   // Create a temporary textarea element
   const tempTextArea = document.createElement('textarea');
   // Set the value of the textarea element to the HTML code
-  tempTextArea.value = htmlCode;
+  let formatedCode = FormatStringToHtml(htmlCode);
+  tempTextArea.value = formatedCode;
+  // FormatStringToHtml(htmlCode);
   // Append the textarea element to the body element
   document.body.appendChild(tempTextArea);
   // Select the text in the textarea element
   tempTextArea.select();
   // Copy the text from the textarea element to the clipboard
-  navigator.clipboard.writeText(htmlCode);
+  navigator.clipboard.writeText(formatedCode);
   // Remove the textarea element from the body element
   document.body.removeChild(tempTextArea);
+
   // Show the dialog
   const dialog = document.getElementById('myDialog');
   dialog.style.display = 'block';
@@ -45,7 +78,6 @@ var codeDetails = document.querySelectorAll('.details');
 
 codeDetails.forEach(function (details) {
   var arrowIcon = details.querySelector('.bx');
-  console.log(details.open);
   details.addEventListener('toggle', function () {
     if (details.open) {
       arrowIcon.classList.remove('bxs-left-arrow', 'bx-fade-left');
@@ -67,14 +99,40 @@ window.addEventListener('scroll', function () {
   scrollProgress.value = scrolledPercentage;
 });
 
-// function toggleSummaryText(event) {
-//   var details = event.target.closest('details');
-//   var isOpen = !details.open;
-//   console.log('isOpen:', isOpen);
+//*? Togggle switch color mode ------------------------------------------------- */
 
-//   if (isOpen) {
-//     details.querySelector('summary h5').innerText = '<Hide code />';
-//   } else {
-//     details.querySelector('summary h5').innerText = '<See code />';
-//   }
-// }
+function toggleColorMode() {
+  let switchColor;
+  switchColor = document.getElementById('switch-color-mode');
+  const elementsLights = document.querySelectorAll(
+    'nav, article, footer, header'
+  );
+  const elementsDark = document.querySelectorAll('main, body');
+
+  switchColor.addEventListener('change', () => {
+    // console.log('switch', switchColor.checked);
+    if (switchColor.checked === true) {
+      /* TRUUUUUUUE */
+      console.log('truuuuueeeeee');
+      elementsLights.forEach((element) => {
+        element.classList.add('light-mode');
+        element.classList.remove('dark-mode');
+      });
+      elementsDark.forEach((element) => {
+        element.classList.add('dark-mode');
+        element.classList.remove('light-mode');
+      });
+    } else {
+      /* FAAAAAAALSE */
+      console.log('falseeeeeee');
+      elementsLights.forEach((element) => {
+        element.classList.add('dark-mode');
+        element.classList.remove('light-mode');
+      });
+      elementsDark.forEach((element) => {
+        element.classList.remove('dark-mode');
+        element.classList.add('light-mode');
+      });
+    }
+  });
+}

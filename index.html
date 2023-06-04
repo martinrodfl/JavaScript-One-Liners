@@ -7,15 +7,17 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/modal-styles.css" />
+	<link rel="stylesheet" href="css/light-dark-styles.css" />
 
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<title>One-Liners-JS</title>
 </head>
 
-<body class="grid-container">
+<body class="grid-container light-mode">
+	<!--? Arrow-scroll-to-top -->
 	<div class="scrollToTop" onclick="window.scrollTo(0,0)">
-		<i class='bx bxs-chevrons-up bx-tada'></i>
+		<i class='bx bx-chevron-up bx-tada'></i>
 	</div>
 	<!--? Dialog-clipboard -->
 	<dialog class="dialog" id="myDialog">
@@ -29,7 +31,7 @@
 		</div>
 	</dialog>
 	<!--? HEADER  -->
-	<header id="header">
+	<header id="header" class="dark-mode">
 		<h1>JavaScript One-Liners to Use in Every Project</h1>
 		<div class="header-content">
 			<h6 class="header-text">
@@ -45,18 +47,22 @@
 	</header>
 
 	<!--? NAV  -->
-	<nav>
-		<div class="nav-content">
-			Navigation
+	<nav class="dark-mode">
+		<!--? SWITCH DARK-LIGHT  -->
+		<div class="nav-content ">
+			<label class="switch">
+				<input type="checkbox" id="switch-color-mode" onclick="toggleColorMode()">
+				<span class="slider"></span>
+			</label>
 		</div>
 	</nav>
 
 	<!--? MAIN  -->
-	<main>
+	<main class="light-mode">
 		<!--* 1. How to Capitalize Text -->
-		<article class="">
+		<article class="dark-mode">
 			<h3 class="article-title">1. How to Capitalize Text</h3>
-			<input type="text" id="inputText" placeholder="Enter a word" required />
+			<input type="text" id="inputText" placeholder="Enter a word" maxlength="11" required />
 			<button class="btn-exercise" onclick="CapitalizeWord()">Capitalize</button>
 			<h3>Result: <span id="resultText" class="result-color"></span></h3>
 			<details class="details">
@@ -65,14 +71,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html1')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html1">
-							</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js1')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -83,10 +81,10 @@
 		</article>
 
 		<!--* 2. How to Calculate Percent -->
-		<article class="">
+		<article class="dark-mode">
 			<h3 class="article-title">2. How to Calculate Percent</h3>
-			<input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" />
-			<input type="number" id="inputValueNumber" placeholder="Enter a value" />
+			<input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" maxlength="11" />
+			<input type="number" id="inputValueNumber" placeholder="Enter a value" maxlength="11" />
 			<button class="btn-exercise" onclick=" CalculatePercent()">Percentage</button>
 			<h3>Result: <span id="resultPercentage" class="result-color"></span></h3>
 			<details class="details">
@@ -95,13 +93,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html2')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html2"></pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js2')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -112,7 +103,7 @@
 		</article>
 
 		<!--* 3. How to Get a Random Element -->
-		<article>
+		<article class="dark-mode">
 			<h3 class="article-title">3. How to Get a Random Element</h3>
 			<div class="checkbox">
 				<input type="checkbox" name="group" id="Names" onchange="HandleCheckboxChange('Names')" checked />
@@ -145,14 +136,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html3')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html3">
-						</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js2')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -163,10 +146,10 @@
 		</article>
 
 		<!--* 4. How to Remove Duplicate Elements -->
-		<article class="remove-duplicates-article">
+		<article class="remove-duplicates-article dark-mode">
 			<h3 class=" article-title">4. How to Remove Duplicate Elements</h3>
 			<div class="checkbox">
-				<input type="checkbox" name="group2" id="Names-Duplicates" onchange="HandleCheckboxRepeat('Names-Duplicates')"
+				<input type="checkbox" name="group2" id="Names-Duplicates" onchange="handleCheckboxRepeat('Names-Duplicates')"
 					checked />
 				<label for="Names-Duplicates">Names (Martin, Martin, Maria, juan, Andrea, Andrea )</label>
 			</div>
@@ -193,14 +176,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html4')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html4">
-						</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js4')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -211,7 +186,7 @@
 		</article>
 
 		<!--* 5. How to Sort Elements By Certain Property -->
-		<article class="sortBy-properties-article">
+		<article class="sortBy-properties-article dark-mode">
 			<h3 class="article-title">5. How to Sort Elements By Certain Property</h3>
 			<div class="image-container">
 				<img src="images/lessons.png">
@@ -242,14 +217,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html5')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html5">
-						</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js5')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -260,22 +227,33 @@
 		</article>
 
 		<!--* 6. -->
-		<article class="">
-			<h3 class="article-title">6.sdfsdfsdfsdfsdfds</h3>
+		<article class="dark-mode">
+			<h3 class="article-title">6. How to Check if Arrays/Objects are Equal</h3>
+			<div class="radio">
+				<input type="radio" name="group4" id="Object" onclick="ShowObject()" checked />
+				<label for="Object">Object</label>
+			</div>
+			<div class="radio">
+				<input type="radio" name="group4" id="Array" onclick="ShowArray()" />
+				<label for="Array">Array</label>
+			</div>
+			<br />
+			<div class="array-object-equals">
+			</div>
+			<br />
+			<button class="btn-exercise" onclick="checkEquality()">
+				Check if <span id="selectedRadioEqualId"></span>
+			</button>
+			<br />
+			<h3 class="result-object">Result:<span id="result-Equals" class="result-color"></span></h3>
 			<details class="details">
 				<summary>
 					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+						&lt;See code/&gt;
+						<span><i class='bx bxs-left-arrow bx-fade-left'></i></span>
+					</h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html6')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html6">
-						</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js6')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -286,7 +264,7 @@
 		</article>
 
 		<!--* 7. -->
-		<article class="">
+		<article class="dark-mode">
 			<h3 class="article-title">7.sdfsdfsdfsdfsdfds</h3>
 			<details class="details">
 				<summary>
@@ -294,14 +272,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html7')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html7">
-						</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js7')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -312,7 +282,7 @@
 		</article>
 
 		<!--* 8. -->
-		<article class="">
+		<article class="dark-mode">
 			<h3 class="article-title">8.sdfsdfsdfsdfsdfds</h3>
 			<details class="details">
 				<summary>
@@ -320,14 +290,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html8')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html8">
-						</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js8')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -338,7 +300,7 @@
 		</article>
 
 		<!--* 9. -->
-		<article class="">
+		<article class="dark-mode">
 			<h3 class="article-title">9.sdfsdfsdfsdfsdfds</h3>
 			<details class="details">
 				<summary>
@@ -346,14 +308,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html9')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html9">
-						</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js9')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
@@ -364,7 +318,7 @@
 		</article>
 
 		<!--* 10. -->
-		<article class="">
+		<article class="dark-mode">
 			<h3 class="article-title">10.sdfsdfsdfsdfsdfds</h3>
 			<details class="details">
 				<summary>
@@ -372,14 +326,6 @@
 						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
 				</summary>
 				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html10')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html10">
-						</pre>
-					<h5>JavasScript</h5>
 					<div class="div-btn-clipboard">
 						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js10')"><i
 								class='bx bx-clipboard bx-tada'></i></button>
