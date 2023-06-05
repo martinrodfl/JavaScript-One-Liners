@@ -92,47 +92,41 @@ codeDetails.forEach(function (details) {
 //*? Progress bar indicator ------------------------------------------------- */
 
 window.addEventListener('scroll', function () {
-  var scrollProgress = document.getElementById('scrollProgress');
-  var maxScrollHeight =
+  let scrollProgress = document.getElementById('scrollProgress');
+  let maxScrollHeight =
     document.documentElement.scrollHeight - window.innerHeight;
   var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
   scrollProgress.value = scrolledPercentage;
+  // console.log(scrolledPercentage);
 });
-
 //*? Togggle switch color mode ------------------------------------------------- */
 
 function toggleColorMode() {
-  let switchColor;
-  switchColor = document.getElementById('switch-color-mode');
+  let switchColor = document.getElementById('switch-color-mode');
   const elementsLights = document.querySelectorAll(
     'nav, article, footer, header'
   );
   const elementsDark = document.querySelectorAll('main, body');
-
-  switchColor.addEventListener('change', () => {
-    // console.log('switch', switchColor.checked);
-    if (switchColor.checked === true) {
-      /* TRUUUUUUUE */
-      console.log('truuuuueeeeee');
-      elementsLights.forEach((element) => {
-        element.classList.add('light-mode');
-        element.classList.remove('dark-mode');
-      });
-      elementsDark.forEach((element) => {
-        element.classList.add('dark-mode');
-        element.classList.remove('light-mode');
-      });
-    } else {
-      /* FAAAAAAALSE */
-      console.log('falseeeeeee');
-      elementsLights.forEach((element) => {
-        element.classList.add('dark-mode');
-        element.classList.remove('light-mode');
-      });
-      elementsDark.forEach((element) => {
-        element.classList.remove('dark-mode');
-        element.classList.add('light-mode');
-      });
-    }
-  });
+  if (switchColor.checked === true) {
+    elementsLights.forEach((element) => {
+      element.classList.add('light-mode');
+      element.classList.remove('dark-mode');
+    });
+    elementsDark.forEach((element) => {
+      element.classList.add('dark-mode');
+      element.classList.remove('light-mode');
+    });
+  } else {
+    elementsLights.forEach((element) => {
+      element.classList.add('dark-mode');
+      element.classList.remove('light-mode');
+    });
+    elementsDark.forEach((element) => {
+      element.classList.remove('dark-mode');
+      element.classList.add('light-mode');
+    });
+  }
 }
+
+const switchColor = document.getElementById('switch-color-mode');
+switchColor.addEventListener('change', toggleColorMode);

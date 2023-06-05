@@ -105,7 +105,7 @@ function HandleCheckboxRepeat(checkboxId) {
     checkbox.checked = checkbox.id === checkboxId;
   });
   if (checkboxId === 'Names-Duplicates') {
-    itemsDuplicates = ['Martin', 'Martin', 'Maria', 'Juan', 'Andrea', 'Andrea'];
+    itemsDuplicates = itemsDuplicates;
   } else if (checkboxId === 'Numbers-Duplicates') {
     itemsDuplicates = [
       '0',

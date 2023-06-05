@@ -51,9 +51,16 @@
 		<!--? SWITCH DARK-LIGHT  -->
 		<div class="nav-content ">
 			<label class="switch">
+				<span class="color-mode" id="color-mode">
+					<i class='bx bxs-sun bx-tada'></i>
+				</span>
+				<span class="color-mode2">
+					<i class='bx bxs-moon bx-tada'></i>
+				</span>
 				<input type="checkbox" id="switch-color-mode" onclick="toggleColorMode()">
-				<span class="slider"></span>
+				<span class="slider" id="slider"></span>
 			</label>
+			<!-- <span class="color-mode" id="color-mode">Dark</span> -->
 		</div>
 	</nav>
 
@@ -145,11 +152,11 @@
 			</details>
 		</article>
 
-		<!--* 4. How to Remove Duplicate Elements -->
+		<!--! 4. How to Remove Duplicate Elements -->
 		<article class="remove-duplicates-article dark-mode">
 			<h3 class=" article-title">4. How to Remove Duplicate Elements</h3>
 			<div class="checkbox">
-				<input type="checkbox" name="group2" id="Names-Duplicates" onchange="handleCheckboxRepeat('Names-Duplicates')"
+				<input type="checkbox" name="group2" id="Names-Duplicates" onchange="HandleCheckboxRepeat('Names-Duplicates')"
 					checked />
 				<label for="Names-Duplicates">Names (Martin, Martin, Maria, juan, Andrea, Andrea )</label>
 			</div>
@@ -188,9 +195,15 @@
 		<!--* 5. How to Sort Elements By Certain Property -->
 		<article class="sortBy-properties-article dark-mode">
 			<h3 class="article-title">5. How to Sort Elements By Certain Property</h3>
-			<div class="image-container">
-				<img src="images/lessons.png">
-			</div>
+			<pre class="obj-exercise5">lessons = [
+
+{position: 0,name: 'Intro',duration: 18,},
+
+{position: 1,name: 'Basics',duration: 12,},
+
+{position: 2, name: 'Advanced',duration: 15,},
+];
+			</pre>
 			<div>
 				<div class="radio">
 					<input type="radio" name="group3" id="position" onchange="HandleRadioChecked('position')" checked />
@@ -335,7 +348,7 @@
 			</details>
 		</article>
 	</main>
-	<footer>Footer</footer>
+	<footer class="dark-mode">Footer</footer>
 	<div class="progress-container">
 		<progress id="scrollProgress" value="0" max="100"></progress>
 	</div>
