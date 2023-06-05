@@ -36,11 +36,12 @@
 	width: 2.1em;
 	border-radius: 3px;
 	left: 0.5px;
-	top: -0.7px;
+	top: 0px;
 	bottom: 0;
 	background-color: white;
 	box-shadow: 0 2px 5px #4d4d4d;
 	transition: .4s;
+	z-index: 2;
 }
 
 input:checked+.slider {
@@ -50,4 +51,28 @@ input:checked+.slider {
 
 input:checked+.slider:before {
 	transform: translateX(2.2em);
+}
+
+.color-mode {
+	width: 1rem;
+	height: auto;
+	position: absolute;
+	top: 2px;
+	left: 28px;
+	color: rgb(245, 154, 18);
+	z-index: 1;
+	font-size: medium;
+	font-weight: 900;
+}
+
+.color-mode2 {
+	width: 1rem;
+	height: auto;
+	position: absolute;
+	top: 2px;
+	left: 5px;
+	color: rgb(255, 255, 255);
+	z-index: 1;
+	font-size: medium;
+	font-weight: 900;
 }
