@@ -38,6 +38,7 @@ body {
 	padding: 0;
 	font-family: 'Kodchasan', sans-serif;
 	/* font-family: 'Poppins', sans-serif; */
+	min-width: 322px;
 }
 
 .grid-container {
