@@ -1,45 +1,108 @@
-/* 1 */
-const html1 = `&lt;input type="text" id="inputText" placeholder="Enter a word" /&gt;
-&lt;button onclick="CapitalizeWord()"&gt;Capitalize&lt;/button&gt;
-&lt;h3&gt;Result:
-&lt;span id="resultText" class="result-color"&gt;&lt;/span&gt;
-&lt;/h3&gt;`;
+//?---------------------------- 1 */
 
-document.getElementById('html1').innerHTML = html1;
+const js1 =
+  'const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)};';
 
-const js1 = `function CapitalizeWord() {
-  let inputValueText = document.getElementById('inputText').value;
-  let capitalizedWord =
-    inputValueText.charAt(0).toUpperCase() + inputValueText.slice(1);
-  document.getElementById('resultText').innerHTML = capitalizedWord;
-}`;
 document.getElementById('js1').innerHTML = js1;
 
-/* 2 */
-var html2 = `&lt;input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" /&gt;
-&lt;input type="number" id="inputValueNumber" placeholder="Enter a value" /&gt;
-&lt;button class="btn-exercise" onclick="CalculatePercent()">Percentage&lt;/button/&gt;
-&lt;h3&gt;Result: &lt;span id="resultPercentage" class="result-color"/&gt;&lt;/span&gt;&lt;h3/&gt`;
+//?---------------------------- 2 */
 
-document.getElementById('html2').innerHTML = html2;
+const js2 = `//* Original *//
+const calculatePercent = (value, total) => Math.round((value / total) * 100)
 
-const js2 = `
-function CalculatePercent() {
-  let inputPercentageNumber = document.getElementById(
-    'inputPercentageNumber'
-  ).value;
-  let inputValueNumber = document.getElementById('inputValueNumber').value;
+//* My Implementation *//
+const calculate = (inputValueNumber, inputPercentageNumber) => {return (inputValueNumber * inputPercentageNumber) / 100};`;
 
-  const calculate = (inputValueNumber, inputPercentageNumber) => {
-    return (inputValueNumber * inputPercentageNumber) / 100;
-  };
-
-  document.getElementById('resultPercentage').innerHTML = calculate(
-    inputPercentageNumber,
-    inputValueNumber
-  );
-}
-`;
 document.getElementById('js2').innerHTML = js2;
 
-/* 3 */
+//?---------------------------- 3 */
+
+const js3 = `//* Original *//
+
+const getRandomItem = (items) =>  items[Math.floor(Math.random() * items.length)];
+
+
+//* My Implementation *//
+
+items = array to be entered
+
+function randomItem() {
+  const itemsCopy = [...items];
+  const filteredItems = itemsCopy.filter((item) => item !== lastSelectedItem);
+  const getRandomItem =
+    filteredItems[Math.floor(Math.random() * filteredItems.length)];
+  lastSelectedItem = getRandomItem;
+  document.getElementById('resultRandom').innerHTML = getRandomItem;
+}
+`;
+
+document.getElementById('js3').innerHTML = js3;
+
+//?---------------------------- 4 */
+
+const js4 = 'const removeDuplicates = (items) => [...new Set(items)];';
+
+document.getElementById('js4').innerHTML = js4;
+
+//?---------------------------- 5 */
+
+const js5 =
+  'const sortBy = (arr, key) => arr.sort((a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);';
+
+document.getElementById('js5').innerHTML = js5;
+
+//?---------------------------- 6 */
+
+const js6 = `//* Original *//
+const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+//* My Implementation *//
+let isEqual = value1 === value3 && value2 === value4;
+  resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';`;
+
+document.getElementById('js6').innerHTML = js6;
+
+//?---------------------------- 7 */
+
+const js7 = `//* Original *//
+const countOccurrences = (arr, value) =>
+  arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
+
+//* My Implementation *//
+const countOccurrences = (arr, value) =>
+  arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
+
+  function HandleOcurrences() {
+    if (selectedRadioOcurrencesId === 'Yes') {
+      document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+        ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+        'Yes'
+      );
+    } else {
+      document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+        ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+        'No'
+      );
+    }
+  }
+`;
+
+document.getElementById('js7').innerHTML = js7;
+
+//?---------------------------- 8 */
+
+const js8 = '';
+
+document.getElementById('js8').innerHTML = js8;
+
+//?---------------------------- 9 */
+
+const js9 = '';
+
+document.getElementById('js9').innerHTML = js9;
+
+//?---------------------------- 10 */
+
+const js10 = '';
+
+document.getElementById('js10').innerHTML = js10;

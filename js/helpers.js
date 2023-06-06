@@ -5,37 +5,58 @@
   };
 })();
 
+window.addEventListener('scroll', function () {
+  let maxScrollHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+  var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
+  scrollProgress.value = scrolledPercentage;
+  const arrowToTop = document.getElementById('scrollToTop');
+  if (scrolledPercentage > 3) {
+    arrowToTop.classList.remove('hiden');
+  } else {
+    arrowToTop.classList.add('hiden');
+  }
+});
+
 //*? Copy code to clipboard ------------------------------------------------- */
 
 function copyCodeToClipboard(elementId) {
-  // Get the pre tag element
   const preTag = document.getElementById(elementId);
-  // Get the HTML code from the pre tag element
   const htmlCode = preTag.innerHTML;
-  // Create a temporary textarea element
   const tempTextArea = document.createElement('textarea');
-  // Set the value of the textarea element to the HTML code
-  tempTextArea.value = htmlCode;
-  // Append the textarea element to the body element
+  const formatedCode = htmlCode;
+  tempTextArea.value = formatedCode;
   document.body.appendChild(tempTextArea);
-  // Select the text in the textarea element
   tempTextArea.select();
-  // Copy the text from the textarea element to the clipboard
-  navigator.clipboard.writeText(htmlCode);
-  // Remove the textarea element from the body element
+  navigator.clipboard.writeText(formatedCode);
   document.body.removeChild(tempTextArea);
-  // Show the dialog
-  const dialog = document.getElementById('myDialog');
-  dialog.style.display = 'block';
-  // Close the dialog after 1.5 seconds if the close button is not pressed
-  setTimeout(() => {
-    if (dialog.style.display === 'block') {
-      dialog.style.display = 'none';
-    }
-  }, 1500);
-  // Close the dialog when the close button is clicked
-  document.getElementById('dialog-close').addEventListener('click', () => {
-    dialog.style.display = 'none';
+
+  const clickedElement = event.currentTarget;
+  const clickedElementId = clickedElement.previousElementSibling.id;
+
+  // console.log(clickedElementId);
+  const copiedText = document.getElementById(clickedElementId);
+
+  if (copiedText) {
+    copiedText.style.display = 'block';
+
+    setTimeout(() => {
+      copiedText.style.display = 'none';
+    }, 2000);
+
+    copiedText.classList.add('vibrate');
+
+    setTimeout(() => {
+      copiedText.classList.remove('vibrate');
+    }, 300);
+  }
+
+  const copiedTextElements = document.querySelectorAll('.copiedText');
+  copiedTextElements.forEach((copiedText, index) => {
+    copiedText.setAttribute('data-copiedtext-id', `copiedText${index + 1}`);
+    copiedText.addEventListener('click', () => {
+      copiedText.style.display = 'none';
+    });
   });
 }
 
@@ -45,7 +66,6 @@ var codeDetails = document.querySelectorAll('.details');
 
 codeDetails.forEach(function (details) {
   var arrowIcon = details.querySelector('.bx');
-  console.log(details.open);
   details.addEventListener('toggle', function () {
     if (details.open) {
       arrowIcon.classList.remove('bxs-left-arrow', 'bx-fade-left');
@@ -60,21 +80,41 @@ codeDetails.forEach(function (details) {
 //*? Progress bar indicator ------------------------------------------------- */
 
 window.addEventListener('scroll', function () {
-  var scrollProgress = document.getElementById('scrollProgress');
-  var maxScrollHeight =
+  let scrollProgress = document.getElementById('scrollProgress');
+  let maxScrollHeight =
     document.documentElement.scrollHeight - window.innerHeight;
   var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
   scrollProgress.value = scrolledPercentage;
 });
+//*? Togggle switch color mode ------------------------------------------------- */
 
-// function toggleSummaryText(event) {
-//   var details = event.target.closest('details');
-//   var isOpen = !details.open;
-//   console.log('isOpen:', isOpen);
+function toggleColorMode() {
+  let switchColor = document.getElementById('switch-color-mode');
+  const elementsLights = document.querySelectorAll(
+    'body, header, nav, article, footer'
+  );
+  const elementsDark = document.querySelectorAll('main,.grid-container');
+  // console.log('switchColor: ', switchColor.checked);
+  if (switchColor.checked === true) {
+    elementsLights.forEach((element) => {
+      element.classList.add('light-mode');
+      element.classList.remove('dark-mode');
+    });
+    elementsDark.forEach((element) => {
+      element.classList.add('dark-mode');
+      element.classList.remove('light-mode');
+    });
+  } else {
+    elementsLights.forEach((element) => {
+      element.classList.add('dark-mode');
+      element.classList.remove('light-mode');
+    });
+    elementsDark.forEach((element) => {
+      element.classList.remove('dark-mode');
+      element.classList.add('light-mode');
+    });
+  }
+}
 
-//   if (isOpen) {
-//     details.querySelector('summary h5').innerText = '<Hide code />';
-//   } else {
-//     details.querySelector('summary h5').innerText = '<See code />';
-//   }
-// }
+const switchColor = document.getElementById('switch-color-mode');
+switchColor.addEventListener('change', toggleColorMode);

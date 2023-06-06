@@ -1,14 +1,14 @@
-//* 1. How to Capitalize Text -------------------------------------------  */
+//todo 1. How to Capitalize Text -------------------------------------------  */
 function CapitalizeWord() {
   let inputValueText;
-  inputValueText = document.getElementById('inputText').value;
+  inputValueText = document.getElementById('inputText').value.toLowerCase();
   let capitalizedWord =
     inputValueText.charAt(0).toUpperCase() + inputValueText.slice(1);
 
   document.getElementById('resultText').innerHTML = capitalizedWord;
 }
 
-//* 2. How to Calculate Percent ------------------------------------------- */
+//todo 2. How to Calculate Percent ------------------------------------------- */
 function CalculatePercent() {
   let inputPercentageNumber = document.getElementById(
     'inputPercentageNumber'
@@ -24,7 +24,7 @@ function CalculatePercent() {
     inputValueNumber
   );
 }
-//*  3. How to Get a Random Element ------------------------------------------- */
+//todo  3. How to Get a Random Element ------------------------------------------- */
 var items = [
   'Martin',
   'Andrea',
@@ -77,35 +77,27 @@ function showSelectedCheckboxId() {
 let lastSelectedItem = '';
 
 function randomItem() {
-  if (items === '') {
-    alert('Debes seleccionar al menos una opción');
-    return;
-  }
-
-  // Copiar el array de elementos para evitar modificar el original
   const itemsCopy = [...items];
-  // Filtrar el array para eliminar el último elemento seleccionado
   const filteredItems = itemsCopy.filter((item) => item !== lastSelectedItem);
-  // Obtener un elemento aleatorio del array filtrado
   const getRandomItem =
     filteredItems[Math.floor(Math.random() * filteredItems.length)];
-  // Actualizar el último elemento seleccionado
   lastSelectedItem = getRandomItem;
-  // Mostrar el elemento seleccionado en el resultado
   document.getElementById('resultRandom').innerHTML = getRandomItem;
 }
+
 showSelectedCheckboxId();
 
-//* 4. How to Remove Duplicate Elements -------------------------------------------  */
+//todo 4. How to Remove Duplicate Elements -------------------------------------------  */
 let itemsDuplicates = ['Martin', 'Martin', 'Maria', 'Juan', 'Andrea', 'Andrea'];
 var selectedCheckboxId = '';
+
 function HandleCheckboxRepeat(checkboxId) {
   const checkboxes = document.getElementsByName('group2');
   checkboxes.forEach(function (checkbox) {
     checkbox.checked = checkbox.id === checkboxId;
   });
   if (checkboxId === 'Names-Duplicates') {
-    itemsDuplicates = ['Martin', 'Martin', 'Maria', 'Juan', 'Andrea', 'Andrea'];
+    itemsDuplicates = itemsDuplicates;
   } else if (checkboxId === 'Numbers-Duplicates') {
     itemsDuplicates = [
       '0',
@@ -139,6 +131,14 @@ function HandleCheckboxRepeat(checkboxId) {
   return checkboxId;
 }
 
+function removeHyphen(string) {
+  const hyphenIndex = string.indexOf('-');
+  if (hyphenIndex !== -1) {
+    string = string.slice(0, hyphenIndex) + ' ' + string.slice(hyphenIndex + 1);
+  }
+  return string;
+}
+
 function showSelectedCheckboxIdRepeat() {
   const checkboxes = document.getElementsByName('group2');
   selectedCheckboxId = '';
@@ -148,7 +148,7 @@ function showSelectedCheckboxIdRepeat() {
     }
   });
   document.getElementById('selectedCheckboxIdDuplicates').innerHTML =
-    selectedCheckboxId;
+    removeHyphen(selectedCheckboxId);
 }
 
 let initName = selectedCheckboxId;
@@ -159,14 +159,6 @@ function NoRepeatItems() {
     return;
   }
 
-  function removeAfterHyphen(string) {
-    var hyphenIndex = string.indexOf('-');
-    if (hyphenIndex !== -1) {
-      string = string.slice(0, hyphenIndex);
-    }
-    return string;
-  }
-
   const removeDuplicates = (items) => [...new Set(items)];
   document.getElementById('result-Duplicates').innerHTML =
     removeDuplicates(itemsDuplicates);
@@ -174,11 +166,23 @@ function NoRepeatItems() {
 
 showSelectedCheckboxIdRepeat();
 
-//* 5. How to Sort Elements By Certain Property -------------------------------------------  */
+//todo 5. How to Sort Elements By Certain Property -------------------------------------------  */
 let lessons = [
-  { position: 0, name: 'Intro', duration: 18 },
-  { position: 1, name: 'Basics', duration: 12 },
-  { position: 2, name: 'Advanced', duration: 15 },
+  {
+    position: 0,
+    name: 'Intro',
+    duration: 18,
+  },
+  {
+    position: 1,
+    name: 'Basics',
+    duration: 12,
+  },
+  {
+    position: 2,
+    name: 'Advanced',
+    duration: 15,
+  },
 ];
 
 let selectedRadioId = 'position';
@@ -222,3 +226,118 @@ function SortLessons() {
 }
 
 HandleRadioChecked();
+
+//todo 6. How to Check if Arrays/Objects are Equal ----------------------------------  */
+
+let selectedRadioEqualsId = 'Object';
+
+function HandleRadioCheckedEquals() {
+  const radios = document.getElementsByName('group4');
+  radios.forEach(function (radio) {
+    if (radio.checked) {
+      selectedRadioEqualsId = radio.id;
+    }
+  });
+
+  document.getElementById('selectedRadioEqualId').innerHTML =
+    selectedRadioEqualsId;
+}
+
+const inputObject = `<p>{ </p>
+<input type="text" id="obj1" class="input-equals" placeholder="a" required />
+<p>, </p>
+<input type="text" id="obj2" class="input-equals" placeholder="a" required />
+<p> }</p>
+<p> === </p>
+<p>{ </p>
+<input type="text" id="obj3" class="input-equals" placeholder="b" required />
+<p>, </p>
+<input type="text" id="obj4" class="input-equals" placeholder="b" required />
+<p> }</p>`;
+
+const inputArray = `<p> [ </p>
+<input type="text" id="arr1" class="input-equals" placeholder="a" required />
+<p>, </p>
+<input type="text" id="arr2" class="input-equals" placeholder="a" required />
+<p> ]</p>
+<p>  ===  </p>
+<p>[ </p>
+<input type="text" id="arr3" class="input-equals" placeholder="b" required />
+<p>, </p>
+<input type="text" id="arr4" class="input-equals" placeholder="b" required />
+<p> ]</p>`;
+
+function ShowObject() {
+  HandleRadioCheckedEquals();
+  let objectEqualDiv = document.querySelector('.array-object-equals');
+  objectEqualDiv.innerHTML = inputObject;
+}
+
+function ShowArray() {
+  HandleRadioCheckedEquals();
+  let arrayEqualDiv = document.querySelector('.array-object-equals');
+  arrayEqualDiv.innerHTML = inputArray;
+}
+
+function checkEquality() {
+  var selectedRadio = document.querySelector('input[name="group4"]:checked').id;
+  var selectedRadioEqualId = document.getElementById('selectedRadioEqualId');
+  let resultEquals = document.getElementById('result-Equals');
+
+  let value1, value2, value3, value4;
+
+  if (selectedRadio === 'Object') {
+    value1 = document.getElementById('obj1').value;
+    value2 = document.getElementById('obj2').value;
+    value3 = document.getElementById('obj3').value;
+    value4 = document.getElementById('obj4').value;
+    selectedRadioEqualId.textContent = 'Objects';
+  } else if (selectedRadio === 'Array') {
+    value1 = document.getElementById('arr1').value;
+    value2 = document.getElementById('arr2').value;
+    value3 = document.getElementById('arr3').value;
+    value4 = document.getElementById('arr4').value;
+    selectedRadioEqualId.textContent = 'Arrays';
+  }
+
+  let isEqual = value1 === value3 && value2 === value4;
+  resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';
+}
+
+ShowObject();
+
+//todo 7. How to Count Number of Occurrences ----------------------------------  */
+
+const array = ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'];
+let selectedRadioOcurrencesId = 'Yes';
+document.getElementById('selectedRadioOcurrencies').innerHTML =
+  selectedRadioOcurrencesId;
+
+const countOccurrences = (arr, value) =>
+  arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
+
+function HandleRadioOcurrences() {
+  const radios = document.getElementsByName('group5');
+  radios.forEach(function (radio) {
+    if (radio.checked) {
+      selectedRadioOcurrencesId = radio.id;
+    }
+  });
+
+  document.getElementById('selectedRadioOcurrencies').innerHTML =
+    selectedRadioOcurrencesId;
+}
+
+function HandleOcurrences() {
+  if (selectedRadioOcurrencesId === 'Yes') {
+    document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+      ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+      'Yes'
+    );
+  } else {
+    document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+      ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+      'No'
+    );
+  }
+}

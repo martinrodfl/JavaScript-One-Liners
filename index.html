@@ -6,392 +6,389 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
 	<link rel="stylesheet" href="css/styles.css" />
-	<link rel="stylesheet" href="css/modal-styles.css" />
-
+	<link rel="stylesheet" href="css/light-dark-styles.css" />
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 	<title>One-Liners-JS</title>
 </head>
 
-<body class="grid-container">
-	<div class="scrollToTop" onclick="window.scrollTo(0,0)">
-		<i class='bx bxs-chevrons-up bx-tada'></i>
-	</div>
-	<!--? Dialog-clipboard -->
-	<dialog class="dialog" id="myDialog">
-		<div class="dialog-body">
-			<div class="dialog-sup-bar">
-				<i class='bx bx-clipboard bx-tada'></i><span id="dialog-close">&times;</span>
-			</div>
-			<div class="dialog-content">
-				<p>Copied!</p>
-			</div>
+<body class="dark-mode">
+	<div class="grid-container light-mode">
+
+
+		<!--? Arrow-scroll-to-top -->
+		<div id="scrollToTop" class="scrollToTop hiden" onclick="window.scrollTo(0,0)">
+			<i class='bx bx-chevron-up bx-tada'></i>
 		</div>
-	</dialog>
-	<!--? HEADER  -->
-	<header id="header">
-		<h1>JavaScript One-Liners to Use in Every Project</h1>
-		<div class="header-content">
-			<h6 class="header-text">
-				This web page is inspired by the www.freecodecamp.org article
-				<a href="https://www.freecodecamp.org/news/javascript-one-liners-to-use-in-every-project/" target="_blank">
-					<i class='bx bx-link'></i>JavaScript One-Liners
-					to Use in Every Project</a>
-			</h6>
-			<div class="header-image">
-				<img src="images/header-image.png" alt="image" />
+
+		<!--? HEADER  -->
+		<header id="header" class="dark-mode">
+			<h1>JavaScript One-Liners</h1>
+			<div class="header-content">
+				<h6 class="header-text">
+					This web page is inspired by the www.freecodecamp.org article
+					<a href="https://www.freecodecamp.org/news/javascript-one-liners-to-use-in-every-project/" target="_blank">
+						<i class='bx bx-link'></i>JavaScript One-Liners
+						to Use in Every Project</a>
+				</h6>
+				<div class="header-image">
+					<img src="images/header-image.png" alt="image" />
+				</div>
 			</div>
+		</header>
+
+		<!--? NAV  -->
+		<nav class="dark-mode">
+
+			<!--? SWITCH DARK-LIGHT  -->
+			<div class="nav-content ">
+				<label class="switch">
+					<span class="color-mode" id="color-mode">
+						<i class='bx bxs-sun bx-tada'></i>
+					</span>
+					<span class="color-mode2">
+						<i class='bx bxs-moon bx-tada'></i>
+					</span>
+					<input type="checkbox" id="switch-color-mode" onclick="toggleColorMode()">
+					<span class="slider" id="slider"></span>
+				</label>
+				<!-- <span class="color-mode" id="color-mode">Dark</span> -->
+			</div>
+		</nav>
+
+		<!--? MAIN  -->
+		<main class="light-mode">
+			<!--* 1. How to Capitalize Text -->
+			<article class="dark-mode">
+				<h3 class="article-title">1. How to Capitalize Text</h3>
+				<p>
+					Capitalize function which accepts some text and makes the first letter uppercase, then appends the rest of the
+					string
+				</p>
+				<input type="text" id="inputText" placeholder="Enter a word" maxlength="50" required />
+				<h3>Result: <span id="resultText" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick="CapitalizeWord()">Capitalize</button>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText1" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js1', event)">
+								<i class='bx bx-clipboard bx-tada'></i>
+							</button>
+						</div>
+						<pre id="js1"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 2. How to Calculate Percent -->
+			<article class="dark-mode">
+				<h3 class="article-title">2. How to Calculate Percent</h3>
+				<p>
+					Function to Calculate Percentage by entering the percentage and the total.
+				</p>
+				<input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" maxlength="11" />
+				<input type="number" id="inputValueNumber" placeholder="Enter a total" maxlength="11" />
+				<h3>Result: <span id="resultPercentage" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick=" CalculatePercent()">Percentage</button>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText2" class="copiedText" style="display: none;">Copied <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js2')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js2"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 3. How to Get a Random Element -->
+			<article class="dark-mode">
+				<h3 class="article-title">3. How to Get a Random Element</h3>
+				<p>
+					Function to get a random element in a given array.Each time you run the function it delivers a different
+					random result than the previous one.
+				</p>
+				<div class="checkbox">
+					<input type="checkbox" name="group" id="Names" onchange="HandleCheckboxChange('Names')" checked />
+					<label for="Names">Names (Martin,
+						Andrea,
+						Carlos,
+						Sandra,
+						Pedro,
+						Maria,
+						Juan,
+						Patricia)</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="group" id="Numbers" onchange="HandleCheckboxChange('Numbers')" />
+					<label for="Numbers">Numbers (0, 1, 2, 3, 5, 6, 7, 8, 9)</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="group" id="Colors" onchange="HandleCheckboxChange('Colors')" />
+					<label for="Colors">Colors (Blue, White, Red, Green, Gray, Pink)</label>
+				</div>
+				<br />
+				<h3>Result: <span id="resultRandom" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick="randomItem()">
+					Random <span id="selectedCheckboxId"></span>
+				</button>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText3" class="copiedText" style="display: none;">Copied <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js2')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js3"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 4. How to Remove Duplicate Elements -->
+			<article class="remove-duplicates-article dark-mode">
+				<h3 class=" article-title">4. How to Remove Duplicate Elements</h3>
+				<p>
+					Function that removes repeated elements from a given object.
+				</p>
+				<div class="checkbox">
+					<input type="checkbox" name="group2" id="Names-Duplicates" onchange="HandleCheckboxRepeat('Names-Duplicates')"
+						checked />
+					<label for="Names-Duplicates">Names (Martin, Martin, Maria, juan, Andrea, Andrea )</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="group2" id="Numbers-Duplicates"
+						onchange="HandleCheckboxRepeat('Numbers-Duplicates')" />
+					<label for="Numbers-Duplicates">Numbers (0, 0, 1, 2, 3, 5, 5, 6, 7, 8, 8, 9)</label>
+				</div>
+				<div class="checkbox">
+					<input type="checkbox" name="group2" id="Colors-Duplicates"
+						onchange="HandleCheckboxRepeat('Colors-Duplicates')" />
+					<label for="Colors-Duplicates">Colors (Blue, Blue, White, Red, Green, Green, Gray, Pink,
+						Pink)</label>
+				</div>
+				<h3 class="removes-duplicates-results-h3">Result: <span id="result-Duplicates" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick="NoRepeatItems()">
+					Remove <span id="selectedCheckboxIdDuplicates"></span>
+				</button>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText4" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js4')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js4"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 5. How to Sort Elements By Certain Property -->
+			<article class="sortBy-properties-article dark-mode">
+				<h3 class="article-title">5. How to Sort Elements By Certain Property</h3>
+				<p>
+					Function that sorts arrays and objects by a chosen property.
+				</p>
+				<pre class="obj-exercise5">lessons = [
+
+{position:0, name:'Intro', duration:18,},
+
+{position:1, name:'Basics', duration:12,},
+
+{position:2, name:'Advanced', duration:15,},
+];
+			</pre>
+				<div>
+					<div class="radio">
+						<input type="radio" name="group3" id="position" onchange="HandleRadioChecked('position')" checked />
+						<label for="position">Position</label>
+					</div>
+					<div class="radio">
+						<input type="radio" name="group3" id="name" onchange="HandleRadioChecked('name')" />
+						<label for="name">Name</label>
+					</div>
+					<div class="radio">
+						<input type="radio" name="group3" id="duration" onchange="HandleRadioChecked('duration')" />
+						<label for="duration">Duration</label>
+					</div>
+				</div>
+				<h3 class="result-object">Result:<span id="result-Sort" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick="SortLessons();">
+					Sort by <span id="selectedRadioSortedId"></span>
+				</button>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText5" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js5')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js5"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 6. How to Check if Arrays/Objects are Equal -->
+			<article class="dark-mode">
+				<h3 class="article-title">6. How to Check if Arrays/Objects are Equal</h3>
+				<p>
+					Function that compares 2 arrays or objects and delivers whether they are the same or different.
+				</p>
+				<div class="radio">
+					<input type="radio" name="group4" id="Object" onclick="ShowObject()" checked />
+					<label for="Object">Object</label>
+				</div>
+				<div class="radio">
+					<input type="radio" name="group4" id="Array" onclick="ShowArray()" />
+					<label for="Array">Array</label>
+				</div>
+				<br />
+				<div class="array-object-equals">
+				</div>
+				<h3 class="result-object">Result:<span id="result-Equals" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick="checkEquality()">
+					Check if <span id="selectedRadioEqualId"></span>
+				</button>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt;
+							<span><i class='bx bxs-left-arrow bx-fade-left'></i></span>
+						</h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText6" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js6')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js6"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 7. How to Count Number of Occurrences -->
+			<article class="dark-mode">
+				<h3 class="article-title">7. How to Count Number of Occurrences</h3>
+				<p>
+					Function that counts how many times the same element is repeated in an array.
+				</p>
+				<pre class="obj-exercise5">Array = ["Yes", "Yes", "No", "Yes", "No", "No", "Yes",];
+									</pre>
+				<div class="radio">
+					<input type="radio" name="group5" id="Yes" onclick="HandleRadioOcurrences()" checked />
+					<label for="Yes">Yes</label>
+				</div>
+				<div class="radio">
+					<input type="radio" name="group5" id="No" onclick="HandleRadioOcurrences()" />
+					<label for="No">No</label>
+				</div>
+				<h3 class="result-object">Result:<span id="result-Ocurrences" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick="HandleOcurrences()">
+					How many times <span id="selectedRadioOcurrencies"></span>
+				</button>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText7" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js7')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js7"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 8. How to Wait for a Certain Amount of Time -->
+			<article class="dark-mode">
+				<h3 class="article-title">8. How to Wait for a Certain Amount of Time</h3>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText8" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js8')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js8"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 9. How to Use the Pluck Property from Array of Objects -->
+			<article class="dark-mode">
+				<h3 class="article-title">9. How to Use the Pluck Property from Array of Objects</h3>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText9" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js9')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js9"></pre>
+					</div>
+				</details>
+			</article>
+
+			<!--* 10. How to Insert an Element at a Certain Position -->
+			<article class="dark-mode">
+				<h3 class="article-title">10. How to Insert an Element at a Certain Position</h3>
+				<details class="details">
+					<summary>
+						<h5>
+							&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
+					</summary>
+					<div class="summary-code">
+						<div class="div-btn-clipboard">
+							<span id="copiedText10" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js10')"><i
+									class='bx bx-clipboard bx-tada'></i></button>
+						</div>
+						<pre id="js10"></pre>
+					</div>
+				</details>
+			</article>
+		</main>
+		<footer class="dark-mode">
+			<div class="footer-content">
+				<p>Developed by Martin R.</p>
+			</div>
+		</footer>
+		<div class="progress-container">
+			<progress id="scrollProgress" value="0" max="100"></progress>
 		</div>
-	</header>
-
-	<!--? NAV  -->
-	<nav>
-		<div class="nav-content">
-			Navigation
-		</div>
-	</nav>
-
-	<!--? MAIN  -->
-	<main>
-		<!--* 1. How to Capitalize Text -->
-		<article class="">
-			<h3 class="article-title">1. How to Capitalize Text</h3>
-			<input type="text" id="inputText" placeholder="Enter a word" required />
-			<button class="btn-exercise" onclick="CapitalizeWord()">Capitalize</button>
-			<h3>Result: <span id="resultText" class="result-color"></span></h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html1')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html1">
-							</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js1')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js1"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 2. How to Calculate Percent -->
-		<article class="">
-			<h3 class="article-title">2. How to Calculate Percent</h3>
-			<input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" />
-			<input type="number" id="inputValueNumber" placeholder="Enter a value" />
-			<button class="btn-exercise" onclick=" CalculatePercent()">Percentage</button>
-			<h3>Result: <span id="resultPercentage" class="result-color"></span></h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html2')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html2"></pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js2')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js2"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 3. How to Get a Random Element -->
-		<article class="">
-			<h3 class="article-title">3. How to Get a Random Element</h3>
-			<div class="checkbox">
-				<input type="checkbox" name="group" id="Names" onchange="HandleCheckboxChange('Names')" checked />
-				<label for="Names">Names (Martin,
-					Andrea,
-					Carlos,
-					Sandra,
-					Pedro,
-					Maria,
-					Juan,
-					Patricia)</label>
-			</div>
-			<div class="checkbox">
-				<input type="checkbox" name="group" id="Numbers" onchange="HandleCheckboxChange('Numbers')" />
-				<label for="Numbers">Numbers (0, 1, 2, 3, 5, 6, 7, 8, 9)</label>
-			</div>
-			<div class="checkbox">
-				<input type="checkbox" name="group" id="Colors" onchange="HandleCheckboxChange('Colors')" />
-				<label for="Colors">Colors (Blue, White, Red, Green, Gray, Pink)</label>
-			</div>
-			<br />
-			<button class="btn-exercise" onclick="randomItem()">
-				Random <span id="selectedCheckboxId"></span>
-			</button>
-			<br />
-			<h3>Result: <span id="resultRandom" class="result-color"></span></h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html3')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html3">
-						</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js2')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js3"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 4. How to Remove Duplicate Elements -->
-		<article class="">
-			<h3 class="article-title">4. How to Remove Duplicate Elements</h3>
-			<div class="checkbox">
-				<input type="checkbox" name="group2" id="Names-Duplicates" onchange="HandleCheckboxRepeat('Names-Duplicates')"
-					checked />
-				<label for="Names-Duplicates">Names (Martin, Martin, Maria, juan, Andrea, Andrea )</label>
-			</div>
-			<div class="checkbox">
-				<input type="checkbox" name="group2" id="Numbers-Duplicates"
-					onchange="HandleCheckboxRepeat('Numbers-Duplicates')" />
-				<label for="Numbers-Duplicates">Numbers (0, 0, 1, 2, 3, 5, 5, 6, 7, 8, 8, 9)</label>
-			</div>
-			<div class="checkbox">
-				<input type="checkbox" name="group2" id="Colors-Duplicates"
-					onchange="HandleCheckboxRepeat('Colors-Duplicates')" />
-				<label for="Colors-Duplicates">Colors (Blue, Blue, White, Red, Green, Green, Gray, Pink,
-					Pink)</label>
-			</div>
-			<br />
-			<button class="btn-exercise" onclick="NoRepeatItems()">
-				Remove <span id="selectedCheckboxIdDuplicates"></span>
-			</button>
-			<br />
-			<h3>Result: <span id="result-Duplicates" class="result-color"></span></h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html4')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html4">
-						</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js4')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js4"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 5. How to Sort Elements By Certain Property -->
-		<article class="">
-			<h3 class="article-title">5. How to Sort Elements By Certain Property</h3>
-			<div class="image-container">
-				<img src="images/lessons.png">
-			</div>
-			<div>
-				<div class="radio">
-					<input type="radio" name="group3" id="position" onchange="HandleRadioChecked('position')" checked />
-					<label for="position">position</label>
-				</div>
-				<div class="radio">
-					<input type="radio" name="group3" id="name" onchange="HandleRadioChecked('name')" />
-					<label for="name">name</label>
-				</div>
-				<div class="radio">
-					<input type="radio" name="group3" id="duration" onchange="HandleRadioChecked('duration')" />
-					<label for="duration">duration</label>
-				</div>
-			</div>
-			<br />
-			<button class="btn-exercise" onclick="SortLessons();">
-				Sort by <span id="selectedRadioSortedId"></span>
-			</button>
-			<br />
-			<h3>Result:<span id="result-Sort" class="result-color"></span></h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html5')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html5">
-						</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js5')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js5"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 6. -->
-		<article class="">
-			<h3 class="article-title">6.sdfsdfsdfsdfsdfds</h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html6')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html6">
-						</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js6')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js6"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 7. -->
-		<article class="">
-			<h3 class="article-title">7.sdfsdfsdfsdfsdfds</h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html7')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html7">
-						</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js7')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js7"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 8. -->
-		<article class="">
-			<h3 class="article-title">8.sdfsdfsdfsdfsdfds</h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html8')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html8">
-						</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js8')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js8"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 9. -->
-		<article class="">
-			<h3 class="article-title">9.sdfsdfsdfsdfsdfds</h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html9')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html9">
-						</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js9')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js9"></pre>
-				</div>
-			</details>
-		</article>
-
-		<!--* 10. -->
-		<article class="">
-			<h3 class="article-title">10.sdfsdfsdfsdfsdfds</h3>
-			<details class="details">
-				<summary>
-					<h5>
-						&lt;See code/&gt; <span><i class='bx bxs-left-arrow bx-fade-left'></i></span></h5>
-				</summary>
-				<div class="summary-code">
-					<h5>HTML</h5>
-					<div class="div-btn-clipboard">
-						<button id="btn-clipboard" class="btn-clipboard" onclick="copyCodeToClipboard('html10')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="html10">
-						</pre>
-					<h5>JavasScript</h5>
-					<div class="div-btn-clipboard">
-						<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js10')"><i
-								class='bx bx-clipboard bx-tada'></i></button>
-					</div>
-					<pre id="js10"></pre>
-				</div>
-			</details>
-		</article>
-	</main>
-	<footer>Footer</footer>
-	<div class="progress-container">
-		<progress id="scrollProgress" value="0" max="100"></progress>
 	</div>
 </body>
 <script src="js/exerciseScripts.js"></script>
