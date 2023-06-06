@@ -18,36 +18,6 @@ window.addEventListener('scroll', function () {
   }
 });
 
-//* Format string to html ------------------------------------------------- */
-// function FormatStringToHtml(code) {
-//   if (code.startsWith('&')) {
-//     let formatedCode = code.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-//     formatedCode = formatedCode.replace(
-//       'class="result-color"',
-//       'class="result-color"'
-//     );
-//     console.log('HTML FORMATEADO:', formatedCode);
-//     return formatedCode;
-//   } else {
-//     console.log('JS SIN FORMATEAR:', code);
-//     return code;
-//   }
-// }
-
-//* Format html to string(function without use)------------------------------------------------- */
-// function FormatHtmlToString(code) {
-//   if (code.startsWith('html')) {
-//     return code;
-//   } else {
-//     let formattedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-//     formattedCode = formattedCode.replace(
-//       'class="result-color"',
-//       'class="result-color"'
-//     );
-//     return formattedCode;
-//   }
-// }
-
 //*? Copy code to clipboard ------------------------------------------------- */
 
 function copyCodeToClipboard(elementId) {
@@ -64,7 +34,7 @@ function copyCodeToClipboard(elementId) {
   const clickedElement = event.currentTarget;
   const clickedElementId = clickedElement.previousElementSibling.id;
 
-  console.log(clickedElementId);
+  // console.log(clickedElementId);
   const copiedText = document.getElementById(clickedElementId);
 
   if (copiedText) {
@@ -89,19 +59,6 @@ function copyCodeToClipboard(elementId) {
     });
   });
 }
-// // Show the dialog
-// const dialog = document.getElementById('myDialog');
-// dialog.style.display = 'block';
-// // Close the dialog after 1.5 seconds if the close button is not pressed
-// setTimeout(() => {
-//   if (dialog.style.display === 'block') {
-//     dialog.style.display = 'none';
-//   }
-// }, 1500);
-// // Close the dialog when the close button is clicked
-// document.getElementById('dialog-close').addEventListener('click', () => {
-//   dialog.style.display = 'none';
-// });
 
 //*? Change arrow class ------------------------------------------------------ */
 
@@ -137,7 +94,7 @@ function toggleColorMode() {
     'body, header, nav, article, footer'
   );
   const elementsDark = document.querySelectorAll('main,.grid-container');
-  console.log('switchColor: ', switchColor.checked);
+  // console.log('switchColor: ', switchColor.checked);
   if (switchColor.checked === true) {
     elementsLights.forEach((element) => {
       element.classList.add('light-mode');
