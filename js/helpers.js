@@ -10,7 +10,6 @@ window.addEventListener('scroll', function () {
     document.documentElement.scrollHeight - window.innerHeight;
   var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
   scrollProgress.value = scrolledPercentage;
-  console.log('scrolled: ', scrolledPercentage);
   const arrowToTop = document.getElementById('scrollToTop');
   if (scrolledPercentage > 3) {
     arrowToTop.classList.remove('hiden');
