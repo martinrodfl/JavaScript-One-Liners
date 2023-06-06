@@ -7,14 +7,34 @@ document.getElementById('js1').innerHTML = js1;
 
 //?---------------------------- 2 */
 
-const js2 = `//* My Implementation *//
+const js2 = `//* Original *//
+const calculatePercent = (value, total) => Math.round((value / total) * 100)
+
+//* My Implementation *//
 const calculate = (inputValueNumber, inputPercentageNumber) => {return (inputValueNumber * inputPercentageNumber) / 100};`;
 
 document.getElementById('js2').innerHTML = js2;
 
 //?---------------------------- 3 */
 
-const js3 = `const getRandomItem = (items) =>  items[Math.floor(Math.random() * items.length)];`;
+const js3 = `//* Original *//
+
+const getRandomItem = (items) =>  items[Math.floor(Math.random() * items.length)];
+
+
+//* My Implementation *//
+
+items = array to be entered
+
+function randomItem() {
+  const itemsCopy = [...items];
+  const filteredItems = itemsCopy.filter((item) => item !== lastSelectedItem);
+  const getRandomItem =
+    filteredItems[Math.floor(Math.random() * filteredItems.length)];
+  lastSelectedItem = getRandomItem;
+  document.getElementById('resultRandom').innerHTML = getRandomItem;
+}
+`;
 
 document.getElementById('js3').innerHTML = js3;
 
@@ -33,7 +53,10 @@ document.getElementById('js5').innerHTML = js5;
 
 //?---------------------------- 6 */
 
-const js6 = `//* My Implementation *//
+const js6 = `//* Original *//
+const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+//* My Implementation *//
 let isEqual = value1 === value3 && value2 === value4;
   resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';`;
 
@@ -41,7 +64,28 @@ document.getElementById('js6').innerHTML = js6;
 
 //?---------------------------- 7 */
 
-const js7 = '';
+const js7 = `//* Original *//
+const countOccurrences = (arr, value) =>
+  arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
+
+//* My Implementation *//
+const countOccurrences = (arr, value) =>
+  arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
+
+  function HandleOcurrences() {
+    if (selectedRadioOcurrencesId === 'Yes') {
+      document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+        ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+        'Yes'
+      );
+    } else {
+      document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+        ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+        'No'
+      );
+    }
+  }
+`;
 
 document.getElementById('js7').innerHTML = js7;
 

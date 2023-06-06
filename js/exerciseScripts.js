@@ -1,7 +1,7 @@
 //todo 1. How to Capitalize Text -------------------------------------------  */
 function CapitalizeWord() {
   let inputValueText;
-  inputValueText = document.getElementById('inputText').value;
+  inputValueText = document.getElementById('inputText').value.toLowerCase();
   let capitalizedWord =
     inputValueText.charAt(0).toUpperCase() + inputValueText.slice(1);
 
@@ -77,22 +77,14 @@ function showSelectedCheckboxId() {
 let lastSelectedItem = '';
 
 function randomItem() {
-  if (items === '') {
-    alert('Debes seleccionar al menos una opción');
-    return;
-  }
-  // Copiar el array de elementos para evitar modificar el original
   const itemsCopy = [...items];
-  // Filtrar el array para eliminar el último elemento seleccionado
   const filteredItems = itemsCopy.filter((item) => item !== lastSelectedItem);
-  // Obtener un elemento aleatorio del array filtrado
   const getRandomItem =
     filteredItems[Math.floor(Math.random() * filteredItems.length)];
-  // Actualizar el último elemento seleccionado
   lastSelectedItem = getRandomItem;
-  // Mostrar el elemento seleccionado en el resultado
   document.getElementById('resultRandom').innerHTML = getRandomItem;
 }
+
 showSelectedCheckboxId();
 
 //todo 4. How to Remove Duplicate Elements -------------------------------------------  */
@@ -313,3 +305,39 @@ function checkEquality() {
 }
 
 ShowObject();
+
+//todo 7. How to Count Number of Occurrences ----------------------------------  */
+
+const array = ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'];
+let selectedRadioOcurrencesId = 'Yes';
+document.getElementById('selectedRadioOcurrencies').innerHTML =
+  selectedRadioOcurrencesId;
+
+const countOccurrences = (arr, value) =>
+  arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
+
+function HandleRadioOcurrences() {
+  const radios = document.getElementsByName('group5');
+  radios.forEach(function (radio) {
+    if (radio.checked) {
+      selectedRadioOcurrencesId = radio.id;
+    }
+  });
+
+  document.getElementById('selectedRadioOcurrencies').innerHTML =
+    selectedRadioOcurrencesId;
+}
+
+function HandleOcurrences() {
+  if (selectedRadioOcurrencesId === 'Yes') {
+    document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+      ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+      'Yes'
+    );
+  } else {
+    document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+      ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+      'No'
+    );
+  }
+}

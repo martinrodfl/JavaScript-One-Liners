@@ -5,21 +5,35 @@
   };
 })();
 
-//*? Format string to html ------------------------------------------------- */
-function FormatStringToHtml(code) {
-  if (code.startsWith('&')) {
-    let formatedCode = code.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
-    formatedCode = formatedCode.replace(
-      'class="result-color"',
-      'class="result-color"'
-    );
-    console.log('HTML FORMATEADO:', formatedCode);
-    return formatedCode;
+window.addEventListener('scroll', function () {
+  let maxScrollHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+  var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
+  scrollProgress.value = scrolledPercentage;
+  console.log('scrolled: ', scrolledPercentage);
+  const arrowToTop = document.getElementById('scrollToTop');
+  if (scrolledPercentage > 3) {
+    arrowToTop.classList.remove('hiden');
   } else {
-    console.log('JS SIN FORMATEAR:', code);
-    return code;
+    arrowToTop.classList.add('hiden');
   }
-}
+});
+
+//* Format string to html ------------------------------------------------- */
+// function FormatStringToHtml(code) {
+//   if (code.startsWith('&')) {
+//     let formatedCode = code.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+//     formatedCode = formatedCode.replace(
+//       'class="result-color"',
+//       'class="result-color"'
+//     );
+//     console.log('HTML FORMATEADO:', formatedCode);
+//     return formatedCode;
+//   } else {
+//     console.log('JS SIN FORMATEAR:', code);
+//     return code;
+//   }
+// }
 
 //* Format html to string(function without use)------------------------------------------------- */
 // function FormatHtmlToString(code) {
@@ -38,39 +52,57 @@ function FormatStringToHtml(code) {
 //*? Copy code to clipboard ------------------------------------------------- */
 
 function copyCodeToClipboard(elementId) {
-  // Get the pre tag element
   const preTag = document.getElementById(elementId);
-  // Get the HTML code from the pre tag element
   const htmlCode = preTag.innerHTML;
-  // Create a temporary textarea element
   const tempTextArea = document.createElement('textarea');
-  // Set the value of the textarea element to the HTML code
-  let formatedCode = FormatStringToHtml(htmlCode);
+  const formatedCode = htmlCode;
   tempTextArea.value = formatedCode;
-  // FormatStringToHtml(htmlCode);
-  // Append the textarea element to the body element
   document.body.appendChild(tempTextArea);
-  // Select the text in the textarea element
   tempTextArea.select();
-  // Copy the text from the textarea element to the clipboard
   navigator.clipboard.writeText(formatedCode);
-  // Remove the textarea element from the body element
   document.body.removeChild(tempTextArea);
 
-  // Show the dialog
-  const dialog = document.getElementById('myDialog');
-  dialog.style.display = 'block';
-  // Close the dialog after 1.5 seconds if the close button is not pressed
-  setTimeout(() => {
-    if (dialog.style.display === 'block') {
-      dialog.style.display = 'none';
-    }
-  }, 1500);
-  // Close the dialog when the close button is clicked
-  document.getElementById('dialog-close').addEventListener('click', () => {
-    dialog.style.display = 'none';
+  const clickedElement = event.currentTarget;
+  const clickedElementId = clickedElement.previousElementSibling.id;
+
+  console.log(clickedElementId);
+  const copiedText = document.getElementById(clickedElementId);
+
+  if (copiedText) {
+    copiedText.style.display = 'block';
+
+    setTimeout(() => {
+      copiedText.style.display = 'none';
+    }, 2000);
+
+    copiedText.classList.add('vibrate');
+
+    setTimeout(() => {
+      copiedText.classList.remove('vibrate');
+    }, 300);
+  }
+
+  const copiedTextElements = document.querySelectorAll('.copiedText');
+  copiedTextElements.forEach((copiedText, index) => {
+    copiedText.setAttribute('data-copiedtext-id', `copiedText${index + 1}`);
+    copiedText.addEventListener('click', () => {
+      copiedText.style.display = 'none';
+    });
   });
 }
+// // Show the dialog
+// const dialog = document.getElementById('myDialog');
+// dialog.style.display = 'block';
+// // Close the dialog after 1.5 seconds if the close button is not pressed
+// setTimeout(() => {
+//   if (dialog.style.display === 'block') {
+//     dialog.style.display = 'none';
+//   }
+// }, 1500);
+// // Close the dialog when the close button is clicked
+// document.getElementById('dialog-close').addEventListener('click', () => {
+//   dialog.style.display = 'none';
+// });
 
 //*? Change arrow class ------------------------------------------------------ */
 
@@ -97,16 +129,16 @@ window.addEventListener('scroll', function () {
     document.documentElement.scrollHeight - window.innerHeight;
   var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
   scrollProgress.value = scrolledPercentage;
-  // console.log(scrolledPercentage);
 });
 //*? Togggle switch color mode ------------------------------------------------- */
 
 function toggleColorMode() {
   let switchColor = document.getElementById('switch-color-mode');
   const elementsLights = document.querySelectorAll(
-    'nav, article, footer, header'
+    'body, header, nav, article, footer'
   );
-  const elementsDark = document.querySelectorAll('main, body');
+  const elementsDark = document.querySelectorAll('main,.grid-container');
+  console.log('switchColor: ', switchColor.checked);
   if (switchColor.checked === true) {
     elementsLights.forEach((element) => {
       element.classList.add('light-mode');
