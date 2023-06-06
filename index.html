@@ -172,6 +172,9 @@
 			<!--* 4. How to Remove Duplicate Elements -->
 			<article class="remove-duplicates-article dark-mode">
 				<h3 class=" article-title">4. How to Remove Duplicate Elements</h3>
+				<p>
+					Function that removes repeated elements from a given object.
+				</p>
 				<div class="checkbox">
 					<input type="checkbox" name="group2" id="Names-Duplicates" onchange="HandleCheckboxRepeat('Names-Duplicates')"
 						checked />
@@ -213,6 +216,9 @@
 			<!--* 5. How to Sort Elements By Certain Property -->
 			<article class="sortBy-properties-article dark-mode">
 				<h3 class="article-title">5. How to Sort Elements By Certain Property</h3>
+				<p>
+					Function that sorts arrays and objects by a chosen property.
+				</p>
 				<pre class="obj-exercise5">lessons = [
 
 {position:0, name:'Intro', duration:18,},
@@ -225,15 +231,15 @@
 				<div>
 					<div class="radio">
 						<input type="radio" name="group3" id="position" onchange="HandleRadioChecked('position')" checked />
-						<label for="position">position</label>
+						<label for="position">Position</label>
 					</div>
 					<div class="radio">
 						<input type="radio" name="group3" id="name" onchange="HandleRadioChecked('name')" />
-						<label for="name">name</label>
+						<label for="name">Name</label>
 					</div>
 					<div class="radio">
 						<input type="radio" name="group3" id="duration" onchange="HandleRadioChecked('duration')" />
-						<label for="duration">duration</label>
+						<label for="duration">Duration</label>
 					</div>
 				</div>
 				<br />
@@ -261,6 +267,9 @@
 			<!--* 6. How to Check if Arrays/Objects are Equal -->
 			<article class="dark-mode">
 				<h3 class="article-title">6. How to Check if Arrays/Objects are Equal</h3>
+				<p>
+					Function that compares 2 arrays or objects and delivers whether they are the same or different.
+				</p>
 				<div class="radio">
 					<input type="radio" name="group4" id="Object" onclick="ShowObject()" checked />
 					<label for="Object">Object</label>
@@ -299,6 +308,9 @@
 			<!--* 7. How to Count Number of Occurrences -->
 			<article class="dark-mode">
 				<h3 class="article-title">7. How to Count Number of Occurrences</h3>
+				<p>
+					Function that counts how many times the same element is repeated in an array.
+				</p>
 				<pre class="obj-exercise5">Array = ["Yes", "Yes", "No", "Yes", "No", "No", "Yes",];
 									</pre>
 				<div class="radio">
@@ -311,7 +323,7 @@
 				</div>
 				<br />
 				<button class="btn-exercise" onclick="HandleOcurrences()">
-					How many <span id="selectedRadioOcurrencies"></span>
+					How many times <span id="selectedRadioOcurrencies"></span>
 				</button>
 				<br />
 				<h3 class="result-object">Result:<span id="result-Ocurrences" class="result-color"></span></h3>
