@@ -5,10 +5,13 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/light-dark-styles.css" />
+	<link rel="stylesheet" href="css/extras.css" />
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 	<title>One-Liners-JS</title>
 </head>
 
@@ -68,7 +71,8 @@
 				</p>
 				<input type="text" id="inputText" placeholder="Enter a word" maxlength="50" required />
 				<h3>Result: <span id="resultText" class="result-color"></span></h3>
-				<button class="btn-exercise" onclick="CapitalizeWord()">Capitalize</button>
+				<button class="btn-exercise" onclick="CapitalizeWord()">
+					Capitalize</button>
 				<details class="details">
 					<summary>
 						<h5>
@@ -76,7 +80,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText1" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText1" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js1', event)">
 								<i class='bx bx-clipboard bx-tada'></i>
 							</button>
@@ -95,7 +99,8 @@
 				<input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" maxlength="11" />
 				<input type="number" id="inputValueNumber" placeholder="Enter a total" maxlength="11" />
 				<h3>Result: <span id="resultPercentage" class="result-color"></span></h3>
-				<button class="btn-exercise" onclick=" CalculatePercent()">Percentage</button>
+				<button class="btn-exercise" onclick=" CalculatePercent()">
+					Percentage</button>
 				<details class="details">
 					<summary>
 						<h5>
@@ -192,7 +197,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText4" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText4" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js4')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -241,7 +246,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText5" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText5" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js5')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -280,7 +285,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText6" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText6" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js6')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -295,8 +300,8 @@
 				<p>
 					Function that counts how many times the same element is repeated in an array.
 				</p>
-				<pre class="obj-exercise5">Array = ["Yes", "Yes", "No", "Yes", "No", "No", "Yes",];
-									</pre>
+				<pre class="obj-exercise5">Array = ["Yes", "Yes", "No", "Yes", "No", "No", "Yes"];
+			</pre>
 				<div class="radio">
 					<input type="radio" name="group5" id="Yes" onclick="HandleRadioOcurrences()" checked />
 					<label for="Yes">Yes</label>
@@ -316,7 +321,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText7" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText7" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js7')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -325,9 +330,19 @@
 				</details>
 			</article>
 
-			<!--* 8. How to Wait for a Certain Amount of Time -->
+			<!--! 8. How to Wait for a Certain Amount of Time -->
 			<article class="dark-mode">
 				<h3 class="article-title">8. How to Wait for a Certain Amount of Time</h3>
+				<label for="seconds">Seconds</label>
+				<input type="number" name="seconds" id="seconds" placeholder="Enter seconds" />
+				<h3 class="result-object">Result:<span id="result-seconds" class="result-color"></span></h3>
+				<div>
+
+					<button class="btn-exercise" onclick="startStopContinueTimer()">
+						Start / Stop <span id="wait-seconds"></span>
+					</button>
+					<button class="btn-reset" onclick="resetTimer()">Reset</button>
+				</div>
 				<details class="details">
 					<summary>
 						<h5>
@@ -335,7 +350,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText8" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText8" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js8')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -354,7 +369,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText9" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText9" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js9')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -373,7 +388,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText10" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText10" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js10')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -384,8 +399,13 @@
 		</main>
 		<footer class="dark-mode">
 			<div class="footer-content">
+				<a href="https://github.com/martinrodfl/JavaScript-One-Liners" target="_blank">
+					<p>Code on Github </p><i class='bx bxl-github' id="github-icon"></i>
+				</a>
+				<a href="mailto:martinrodfl@gmail.com?Subject=Aplicacion%20Web" target="_blank">
+					<p>Contact </p><i class='bx bx-envelope' id="envelope-icon"></i>
+				</a>
 				<p>Developed by Martin R.</p>
-				<p>Code on Github <a href="#"><i class='bx bxl-github'></i></a></p>
 			</div>
 		</footer>
 		<div class="progress-container">
