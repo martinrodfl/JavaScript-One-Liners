@@ -348,11 +348,14 @@ const wait = async (milliseconds) =>
   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 document.getElementById('result-seconds').innerText = 0;
+const btnseconds = document.getElementById('btnseconds');
 
 function startStopContinueTimer() {
   const secondsInput = document.getElementById('seconds');
   const waitSeconds = document.getElementById('result-seconds');
   waitSeconds.classList.add('green-color');
+  btnseconds.classList.remove('btn-exercise');
+  btnseconds.classList.add('orange-color');
   const seconds = parseInt(secondsInput.value);
 
   if (isNaN(seconds) || seconds <= 0) {
@@ -362,6 +365,8 @@ function startStopContinueTimer() {
 
   if (startStopContinueTimer.timer) {
     // El temporizador está en marcha, se detiene
+    btnseconds.classList.remove('orange-color');
+    btnseconds.classList.add('btn-exercise');
     clearInterval(startStopContinueTimer.timer);
     startStopContinueTimer.timer = null;
     return;
@@ -393,6 +398,8 @@ function startStopContinueTimer() {
     ) {
       clearInterval(startStopContinueTimer.timer);
       startStopContinueTimer.timer = null;
+      btnseconds.classList.remove('orange-color');
+      btnseconds.classList.add('btn-exercise');
       showMessage();
     }
   }, 100);
