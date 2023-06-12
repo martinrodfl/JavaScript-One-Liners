@@ -1,0 +1,19 @@
+{
+  "name": "one-liners",
+  "version": "1.0.0",
+  "description": "App to see JavaScript One-liners working",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinrodfl/JavaScript-One-Liners.git"
+  },
+  "author": "Martin Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martinrodfl/JavaScript-One-Liners/issues"
+  },
+  "homepage": "https://github.com/martinrodfl/JavaScript-One-Liners#readme"
+}

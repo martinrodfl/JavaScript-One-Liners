@@ -91,7 +91,42 @@ document.getElementById('js7').innerHTML = js7;
 
 //?---------------------------- 8 */
 
-const js8 = '';
+const js8 = `//* Original *//
+const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+wait(2000).then(() => yourFunction());
+
+//* My Implementation *//
+const wait = async (milliseconds) =>
+  new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+function startTimer() {
+  const secondsInput = document.getElementById('seconds');
+  const waitSeconds = document.getElementById('result-seconds');
+  const seconds = parseInt(secondsInput.value);
+
+  if (isNaN(seconds) || seconds <= 0) {
+    alert('Please enter a valid number of seconds');
+    return;
+  }
+
+  let countdown = seconds * 1000;
+
+  const timer = setInterval(() => {
+    waitSeconds.textContent = countdown;
+    countdown -= 100;
+
+    if (countdown < 0) {
+      clearInterval(timer);
+      showMessage();
+    }
+  }, 100);
+}
+
+function showMessage() {
+  const resultSeconds = document.getElementById('result-seconds');
+  resultSeconds.textContent = 'Finished!';
+}
+`;
 
 document.getElementById('js8').innerHTML = js8;
 

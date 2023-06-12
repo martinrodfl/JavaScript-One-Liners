@@ -341,3 +341,72 @@ function HandleOcurrences() {
     );
   }
 }
+
+//todo 8. How to Wait for a Certain Amount of Time ----------------------------------  */
+
+const wait = async (milliseconds) =>
+  new Promise((resolve) => setTimeout(resolve, milliseconds));
+
+document.getElementById('result-seconds').innerText = 0;
+
+function startStopContinueTimer() {
+  const secondsInput = document.getElementById('seconds');
+  const waitSeconds = document.getElementById('result-seconds');
+  waitSeconds.classList.add('green-color');
+  const seconds = parseInt(secondsInput.value);
+
+  if (isNaN(seconds) || seconds <= 0) {
+    waitSeconds.textContent = 'Please enter a valid number of seconds!';
+    return;
+  }
+
+  if (startStopContinueTimer.timer) {
+    // El temporizador está en marcha, se detiene
+    clearInterval(startStopContinueTimer.timer);
+    startStopContinueTimer.timer = null;
+    return;
+  }
+
+  if (
+    !startStopContinueTimer.startTime ||
+    startStopContinueTimer.elapsedTime >= startStopContinueTimer.countdown
+  ) {
+    // El temporizador no se ha iniciado previamente o ya ha alcanzado el tiempo límite
+    startStopContinueTimer.startTime = Date.now();
+    startStopContinueTimer.elapsedTime = 0;
+    startStopContinueTimer.countdown = seconds * 1000;
+  } else {
+    // El temporizador se ha detenido previamente, se reanuda desde el tiempo en que se detuvo
+    startStopContinueTimer.startTime =
+      Date.now() - startStopContinueTimer.elapsedTime;
+  }
+
+  startStopContinueTimer.timer = setInterval(() => {
+    const currentTime = Date.now();
+    startStopContinueTimer.elapsedTime =
+      currentTime - startStopContinueTimer.startTime;
+    waitSeconds.textContent =
+      startStopContinueTimer.countdown - startStopContinueTimer.elapsedTime;
+
+    if (
+      startStopContinueTimer.elapsedTime >= startStopContinueTimer.countdown
+    ) {
+      clearInterval(startStopContinueTimer.timer);
+      startStopContinueTimer.timer = null;
+      showMessage();
+    }
+  }, 100);
+}
+
+function resetTimer() {
+  const waitSeconds = document.getElementById('result-seconds');
+  clearInterval(startStopContinueTimer.timer);
+  startStopContinueTimer.timer = null;
+  waitSeconds.textContent = '0';
+}
+
+function showMessage() {
+  const resultSeconds = document.getElementById('result-seconds');
+  resultSeconds.classList.remove('green-color');
+  resultSeconds.textContent = 'Finished!';
+}
