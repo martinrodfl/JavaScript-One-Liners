@@ -201,7 +201,7 @@ input[type="text"], input[type="number"] {
 	border: none;
 	border-radius: 3px;
 	padding: 0 10%;
-	background-color: rgb(255, 93, 93);
+	background-color: rgb(167, 167, 167);
 	color: var(--text-color);
 	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
@@ -215,6 +215,18 @@ input[type="text"], input[type="number"] {
 
 .green-color {
 	color: var(--accent-color);
+}
+
+.orange-color {
+	max-width: fit-content;
+	height: 27px;
+	border: none;
+	border-radius: 3px;
+	padding: 0 10%;
+	background-color: rgb(216, 113, 29);
+	color: var(--text-color);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
 }
 
 .result-color ul {
