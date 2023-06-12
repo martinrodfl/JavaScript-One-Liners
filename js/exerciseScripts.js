@@ -1,4 +1,4 @@
-//todo 1. How to Capitalize Text -------------------------------------------  */
+//? 1. How to Capitalize Text -------------------------------------------  */
 function CapitalizeWord() {
   let inputValueText;
   inputValueText = document.getElementById('inputText').value.toLowerCase();
@@ -8,7 +8,7 @@ function CapitalizeWord() {
   document.getElementById('resultText').innerHTML = capitalizedWord;
 }
 
-//todo 2. How to Calculate Percent ------------------------------------------- */
+//? 2. How to Calculate Percent ------------------------------------------- */
 function CalculatePercent() {
   let inputPercentageNumber = document.getElementById(
     'inputPercentageNumber'
@@ -24,7 +24,7 @@ function CalculatePercent() {
     inputValueNumber
   );
 }
-//todo  3. How to Get a Random Element ------------------------------------------- */
+//? 3. How to Get a Random Element ------------------------------------------- */
 var items = [
   'Martin',
   'Andrea',
@@ -87,7 +87,7 @@ function randomItem() {
 
 showSelectedCheckboxId();
 
-//todo 4. How to Remove Duplicate Elements -------------------------------------------  */
+//? 4. How to Remove Duplicate Elements -------------------------------------------  */
 let itemsDuplicates = ['Martin', 'Martin', 'Maria', 'Juan', 'Andrea', 'Andrea'];
 var selectedCheckboxId = '';
 
@@ -166,7 +166,7 @@ function NoRepeatItems() {
 
 showSelectedCheckboxIdRepeat();
 
-//todo 5. How to Sort Elements By Certain Property -------------------------------------------  */
+//? 5. How to Sort Elements By Certain Property -------------------------------------------  */
 let lessons = [
   {
     position: 0,
@@ -227,7 +227,7 @@ function SortLessons() {
 
 HandleRadioChecked();
 
-//todo 6. How to Check if Arrays/Objects are Equal ----------------------------------  */
+//? 6. How to Check if Arrays/Objects are Equal ----------------------------------  */
 
 let selectedRadioEqualsId = 'Object';
 
@@ -306,7 +306,7 @@ function checkEquality() {
 
 ShowObject();
 
-//todo 7. How to Count Number of Occurrences ----------------------------------  */
+//? 7. How to Count Number of Occurrences ----------------------------------  */
 
 const array = ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'];
 let selectedRadioOcurrencesId = 'Yes';
@@ -342,20 +342,26 @@ function HandleOcurrences() {
   }
 }
 
-//todo 8. How to Wait for a Certain Amount of Time ----------------------------------  */
+//? 8. How to Wait for a Certain Amount of Time ----------------------------------  */
 
-const wait = async (milliseconds) =>
-  new Promise((resolve) => setTimeout(resolve, milliseconds));
+// const wait = async (milliseconds) =>
+//   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
-document.getElementById('result-seconds').innerText = 0;
-const btnseconds = document.getElementById('btnseconds');
+const resultSeconds = document.getElementById('result-seconds');
+const btnSeconds = document.getElementById('btnseconds');
+const secondsInput = document.getElementById('seconds');
+let timer = null;
+let startTime = null;
+let elapsedTime = null;
+let countdown = null;
 
 function startStopContinueTimer() {
-  const secondsInput = document.getElementById('seconds');
   const waitSeconds = document.getElementById('result-seconds');
+
   waitSeconds.classList.add('green-color');
-  btnseconds.classList.remove('btn-exercise');
-  btnseconds.classList.add('orange-color');
+  btnSeconds.classList.remove('btn-exercise');
+  btnSeconds.classList.add('orange-color');
+
   const seconds = parseInt(secondsInput.value);
 
   if (isNaN(seconds) || seconds <= 0) {
@@ -363,57 +369,104 @@ function startStopContinueTimer() {
     return;
   }
 
-  if (startStopContinueTimer.timer) {
+  if (timer) {
     // El temporizador está en marcha, se detiene
-    btnseconds.classList.remove('orange-color');
-    btnseconds.classList.add('btn-exercise');
-    clearInterval(startStopContinueTimer.timer);
-    startStopContinueTimer.timer = null;
+    stopTimer();
     return;
   }
 
-  if (
-    !startStopContinueTimer.startTime ||
-    startStopContinueTimer.elapsedTime >= startStopContinueTimer.countdown
-  ) {
+  if (!startTime || elapsedTime >= countdown) {
     // El temporizador no se ha iniciado previamente o ya ha alcanzado el tiempo límite
-    startStopContinueTimer.startTime = Date.now();
-    startStopContinueTimer.elapsedTime = 0;
-    startStopContinueTimer.countdown = seconds * 1000;
+    initializeTimer(seconds);
   } else {
     // El temporizador se ha detenido previamente, se reanuda desde el tiempo en que se detuvo
-    startStopContinueTimer.startTime =
-      Date.now() - startStopContinueTimer.elapsedTime;
+    resumeTimer();
   }
 
-  startStopContinueTimer.timer = setInterval(() => {
-    const currentTime = Date.now();
-    startStopContinueTimer.elapsedTime =
-      currentTime - startStopContinueTimer.startTime;
-    waitSeconds.textContent =
-      startStopContinueTimer.countdown - startStopContinueTimer.elapsedTime;
+  timer = setInterval(updateTimer, 100);
+}
 
-    if (
-      startStopContinueTimer.elapsedTime >= startStopContinueTimer.countdown
-    ) {
-      clearInterval(startStopContinueTimer.timer);
-      startStopContinueTimer.timer = null;
-      btnseconds.classList.remove('orange-color');
-      btnseconds.classList.add('btn-exercise');
-      showMessage();
-    }
-  }, 100);
+function stopTimer() {
+  btnSeconds.classList.remove('orange-color');
+  btnSeconds.classList.add('btn-exercise');
+  clearInterval(timer);
+  timer = null;
+}
+
+function initializeTimer(seconds) {
+  startTime = Date.now();
+  elapsedTime = 0;
+  countdown = seconds * 1000;
+}
+
+function resumeTimer() {
+  startTime = Date.now() - elapsedTime;
+}
+
+function updateTimer() {
+  const currentTime = Date.now();
+  elapsedTime = currentTime - startTime;
+  const remainingTime = countdown - elapsedTime;
+
+  resultSeconds.textContent = remainingTime;
+
+  if (elapsedTime >= countdown) {
+    clearInterval(timer);
+    timer = null;
+    stopTimer();
+    showMessage();
+  }
 }
 
 function resetTimer() {
-  const waitSeconds = document.getElementById('result-seconds');
-  clearInterval(startStopContinueTimer.timer);
-  startStopContinueTimer.timer = null;
-  waitSeconds.textContent = '0';
+  btnSeconds.classList.remove('orange-color');
+  btnSeconds.classList.add('btn-exercise');
+
+  clearInterval(timer);
+  timer = null;
+
+  resultSeconds.textContent = '0';
+
+  // Restablecer todas las variables a null
+  startTime = null;
+  elapsedTime = null;
+  countdown = null;
 }
 
 function showMessage() {
-  const resultSeconds = document.getElementById('result-seconds');
   resultSeconds.classList.remove('green-color');
   resultSeconds.textContent = 'Finished!';
 }
+
+//todo 9. How to Use the Pluck Property from Array of Objects ----------------------------------  */
+
+const users = [
+  { name: 'Abe', age: 45 },
+  { name: 'Jennifer', age: 27 },
+  { name: 'Paul', age: 31 },
+];
+
+let selectedRadioPropertyId = 'by names';
+let selectedKey;
+
+function handleRadioCheckedProperty() {
+  const selectedRadioPropertyId = document.querySelector(
+    'input[name="group6"]:checked'
+  ).id;
+  selectedKey = selectedRadioPropertyId === 'by names' ? 'name' : 'age';
+  document.getElementById('selectedRadioPropertyId').textContent =
+    selectedRadioPropertyId;
+  document.getElementById('result-property').textContent = '';
+}
+
+const pluck = (objs, key) => objs.map((obj) => obj[key]);
+
+function pluckProperties() {
+  handleRadioCheckedProperty();
+  document.getElementById('result-property').textContent = pluck(
+    users,
+    selectedKey
+  );
+}
+
+handleRadioCheckedProperty();

@@ -43,7 +43,8 @@
 }
 
 .hiden {
-	display: none;
+	/* display: none; */
+	visibility: hidden;
 }
 
 /*? BODY ----------------------------*/
@@ -436,6 +437,22 @@ footer {
 #github-icon {
 	position: relative;
 	top: 1px;
+}
+
+.develop-by {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.develop-by p {
+	display: flex;
+}
+
+.my-logo {
+	width: 20px;
+
 }
 
 

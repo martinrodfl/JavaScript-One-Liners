@@ -1,9 +1,9 @@
 //*? IIFE position page in top ---------------------------------------------- */
-(function () {
-  window.onload = function () {
-    window.scrollTo(0, 0);
-  };
-})();
+// (function () {
+//   window.onload = function () {
+//     window.scrollTo(0, 0);
+//   };
+// })();
 
 window.addEventListener('scroll', function () {
   let maxScrollHeight =
@@ -11,7 +11,8 @@ window.addEventListener('scroll', function () {
   var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
   scrollProgress.value = scrolledPercentage;
   const arrowToTop = document.getElementById('scrollToTop');
-  if (scrolledPercentage > 3) {
+  // console.log(scrolledPercentage);
+  if (scrolledPercentage > 10) {
     arrowToTop.classList.remove('hiden');
   } else {
     arrowToTop.classList.add('hiden');

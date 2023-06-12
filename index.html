@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="icon" type="image/png" href="favicon.png">
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/light-dark-styles.css" />
 	<link rel="stylesheet" href="css/extras.css" />
@@ -330,7 +330,7 @@
 				</details>
 			</article>
 
-			<!--! 8. How to Wait for a Certain Amount of Time -->
+			<!--* 8. How to Wait for a Certain Amount of Time -->
 			<article class="dark-mode">
 				<h3 class="article-title">8. How to Wait for a Certain Amount of Time</h3>
 				<label for="seconds">Seconds</label>
@@ -359,9 +359,31 @@
 				</details>
 			</article>
 
-			<!--* 9. How to Use the Pluck Property from Array of Objects -->
+			<!--! 9. How to Use the Pluck Property from Array of Objects -->
 			<article class="dark-mode">
 				<h3 class="article-title">9. How to Use the Pluck Property from Array of Objects</h3>
+				<pre class="obj-exercise5">users = [
+
+{ name: "Abe", age: 45 }, 
+
+{ name: "Jennifer", age: 27 },
+
+{ name: 'Paul', age: 31 },
+
+];
+				</pre>
+				<div class="radio">
+					<input type="radio" name="group6" id="by names" onclick="handleRadioCheckedProperty()" checked />
+					<label for="by names">Name</label>
+				</div>
+				<div class="radio">
+					<input type="radio" name="group6" id="by ages" onclick="handleRadioCheckedProperty()" />
+					<label for="by ages">Age</label>
+				</div>
+				<h3 class="result-object">Result: <span id="result-property" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick="pluckProperties();">
+					Pluck <span id="selectedRadioPropertyId"></span>
+				</button>
 				<details class="details">
 					<summary>
 						<h5>
@@ -405,7 +427,9 @@
 				<a href="mailto:martinrodfl@gmail.com?Subject=Aplicacion%20Web" target="_blank">
 					<p>Contact </p><i class='bx bx-envelope' id="envelope-icon"></i>
 				</a>
-				<p>Developed by Martin R.</p>
+				<div class="develop-by">
+					<span>Developed by </span> <img class="my-logo" src="favicon.png" />
+				</div>
 			</div>
 		</footer>
 		<div class="progress-container">
