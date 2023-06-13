@@ -49,7 +49,6 @@ function copyCodeToClipboard(elementId) {
     setTimeout(() => {
       copiedText.style.display = 'none';
     }, 2000);
-    sound(0.2);
     copiedText.classList.add('vibrate');
 
     setTimeout(() => {
@@ -95,7 +94,6 @@ window.addEventListener('scroll', function () {
 //*? Togggle switch color mode ------------------------------------------------- */
 
 function toggleColorMode() {
-  sound(0.2);
   let switchColor = document.getElementById('switch-color-mode');
   const elementsLights = document.querySelectorAll(
     'body, header, nav, article, footer'
@@ -124,11 +122,3 @@ function toggleColorMode() {
 
 const switchColor = document.getElementById('switch-color-mode');
 switchColor.addEventListener('change', toggleColorMode);
-
-//*? Sound ------------------------------------------------- */
-
-function sound(volume) {
-  var audio = new Audio('../audio/audio.mp3');
-  audio.volume = volume;
-  audio.play();
-}
