@@ -91,7 +91,7 @@ input:checked+.slider:before {
 		min-width: 56px;
 		width: 56.7px;
 		height: 28px;
-		margin: 30px auto;
+		/* margin: 30px auto; */
 	}
 
 	.slider:before {
@@ -128,7 +128,7 @@ input:checked+.slider:before {
 		position: relative;
 		display: inline-block;
 		min-width: 53px;
-		margin: 30px auto;
+		/* margin: 30px auto; */
 		width: 54px;
 		height: 27.5px;
 	}

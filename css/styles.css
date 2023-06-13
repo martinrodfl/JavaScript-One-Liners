@@ -484,18 +484,6 @@ footer {
 }
 
 
-
-.develop-by:hover img {
-	/* transform: ; */
-	transition: transform 0.3s ease;
-	position: fixed;
-	top: 40%;
-	left: 50%;
-	transform: scale(25);
-}
-
-
-
 /*? MEDIA QUERIES */
 
 /* ----------------------- 820px ---------------*/
@@ -506,7 +494,8 @@ footer {
 		grid-template-rows: auto 1fr auto;
 		grid-template-areas:
 			"header header"
-			"nav main"
+			"nav nav "
+			"main main"
 			"footer footer";
 	}
 
@@ -564,6 +553,15 @@ footer {
 
 	.obj-exercise5 {
 		font-size: 1.1rem;
+	}
+
+	.develop-by:hover img {
+		/* transform: ; */
+		transition: transform 0.3s ease;
+		position: fixed;
+		top: 40%;
+		left: 50%;
+		transform: scale(25);
 	}
 
 
