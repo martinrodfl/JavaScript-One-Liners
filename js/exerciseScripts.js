@@ -1,14 +1,18 @@
-//todo 1. How to Capitalize Text -------------------------------------------  */
-function CapitalizeWord() {
-  let inputValueText;
-  inputValueText = document.getElementById('inputText').value.toLowerCase();
-  let capitalizedWord =
-    inputValueText.charAt(0).toUpperCase() + inputValueText.slice(1);
+//? 1. How to Capitalize Text -------------------------------------------  */
+function capitalizeWord() {
+  const inputValueText = document.getElementById('inputText').value;
+  if (!inputValueText) {
+    document.getElementById('resultText').textContent = 'Complete the field';
+    return;
+  }
+  const capitalizedWord =
+    inputValueText.charAt(0).toUpperCase() +
+    inputValueText.slice(1).toLowerCase();
 
-  document.getElementById('resultText').innerHTML = capitalizedWord;
+  document.getElementById('resultText').textContent = capitalizedWord;
 }
 
-//todo 2. How to Calculate Percent ------------------------------------------- */
+//? 2. How to Calculate Percent ------------------------------------------- */
 function CalculatePercent() {
   let inputPercentageNumber = document.getElementById(
     'inputPercentageNumber'
@@ -19,12 +23,18 @@ function CalculatePercent() {
     return (inputValueNumber * inputPercentageNumber) / 100;
   };
 
+  if (!inputPercentageNumber || !inputValueNumber) {
+    document.getElementById('resultPercentage').textContent =
+      'Complete both fields';
+    return;
+  }
+
   document.getElementById('resultPercentage').innerHTML = calculate(
     inputPercentageNumber,
     inputValueNumber
   );
 }
-//todo  3. How to Get a Random Element ------------------------------------------- */
+//? 3. How to Get a Random Element ------------------------------------------- */
 var items = [
   'Martin',
   'Andrea',
@@ -87,7 +97,7 @@ function randomItem() {
 
 showSelectedCheckboxId();
 
-//todo 4. How to Remove Duplicate Elements -------------------------------------------  */
+//? 4. How to Remove Duplicate Elements -------------------------------------------  */
 let itemsDuplicates = ['Martin', 'Martin', 'Maria', 'Juan', 'Andrea', 'Andrea'];
 var selectedCheckboxId = '';
 
@@ -166,7 +176,7 @@ function NoRepeatItems() {
 
 showSelectedCheckboxIdRepeat();
 
-//todo 5. How to Sort Elements By Certain Property -------------------------------------------  */
+//? 5. How to Sort Elements By Certain Property -------------------------------------------  */
 let lessons = [
   {
     position: 0,
@@ -227,7 +237,7 @@ function SortLessons() {
 
 HandleRadioChecked();
 
-//todo 6. How to Check if Arrays/Objects are Equal ----------------------------------  */
+//? 6. How to Check if Arrays/Objects are Equal ----------------------------------  */
 
 let selectedRadioEqualsId = 'Object';
 
@@ -300,13 +310,17 @@ function checkEquality() {
     selectedRadioEqualId.textContent = 'Arrays';
   }
 
-  let isEqual = value1 === value3 && value2 === value4;
-  resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';
+  if (!value1 || !value2 || !value3 || !value4) {
+    resultEquals.textContent = 'All fields must be completed';
+  } else {
+    let isEqual = value1 === value3 && value2 === value4;
+    resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';
+  }
 }
 
 ShowObject();
 
-//todo 7. How to Count Number of Occurrences ----------------------------------  */
+//? 7. How to Count Number of Occurrences ----------------------------------  */
 
 const array = ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'];
 let selectedRadioOcurrencesId = 'Yes';
@@ -340,4 +354,171 @@ function HandleOcurrences() {
       'No'
     );
   }
+}
+
+//? 8. How to Wait for a Certain Amount of Time ----------------------------------  */
+
+const resultSeconds = document.getElementById('result-seconds');
+const btnSeconds = document.getElementById('btnseconds');
+const secondsInput = document.getElementById('seconds');
+let timer = null;
+let startTime = null;
+let elapsedTime = null;
+let countdown = null;
+
+function startStopContinueTimer() {
+  const waitSeconds = document.getElementById('result-seconds');
+
+  waitSeconds.classList.add('green-color');
+  btnSeconds.classList.remove('btn-exercise');
+  btnSeconds.classList.add('orange-color');
+
+  const seconds = parseInt(secondsInput.value);
+
+  if (isNaN(seconds) || seconds <= 0) {
+    waitSeconds.textContent = 'Please enter a valid number of seconds!';
+    return;
+  }
+
+  if (timer) {
+    // El temporizador está en marcha, se detiene
+    stopTimer();
+    return;
+  }
+
+  if (!startTime || elapsedTime >= countdown) {
+    // El temporizador no se ha iniciado previamente o ya ha alcanzado el tiempo límite
+    initializeTimer(seconds);
+  } else {
+    // El temporizador se ha detenido previamente, se reanuda desde el tiempo en que se detuvo
+    resumeTimer();
+  }
+
+  timer = setInterval(updateTimer, 100);
+}
+
+function stopTimer() {
+  btnSeconds.classList.remove('orange-color');
+  btnSeconds.classList.add('btn-exercise');
+  clearInterval(timer);
+  timer = null;
+}
+
+function initializeTimer(seconds) {
+  startTime = Date.now();
+  elapsedTime = 0;
+  countdown = seconds * 1000;
+}
+
+function resumeTimer() {
+  startTime = Date.now() - elapsedTime;
+}
+
+function updateTimer() {
+  const currentTime = Date.now();
+  elapsedTime = currentTime - startTime;
+  const remainingTime = countdown - elapsedTime;
+
+  resultSeconds.textContent = remainingTime;
+
+  if (elapsedTime >= countdown) {
+    clearInterval(timer);
+    timer = null;
+    stopTimer();
+    showMessage();
+  }
+}
+
+function resetTimer() {
+  btnSeconds.classList.remove('orange-color');
+  btnSeconds.classList.add('btn-exercise');
+
+  clearInterval(timer);
+  timer = null;
+
+  resultSeconds.textContent = '0';
+
+  // Restablecer todas las variables a null
+  startTime = null;
+  elapsedTime = null;
+  countdown = null;
+}
+
+function showMessage() {
+  resultSeconds.classList.remove('green-color');
+  resultSeconds.textContent = 'Finished!';
+}
+
+//? 9. How to Use the Pluck Property from Array of Objects ----------------------------------  */
+
+const users = [
+  { name: 'Abe', age: 45 },
+  { name: 'Jennifer', age: 27 },
+  { name: 'Paul', age: 31 },
+];
+
+let selectedRadioPropertyId = 'by names';
+let selectedKey;
+
+function handleRadioCheckedProperty() {
+  const selectedRadioPropertyId = document.querySelector(
+    'input[name="group6"]:checked'
+  ).id;
+  selectedKey = selectedRadioPropertyId === 'by names' ? 'name' : 'age';
+  document.getElementById('selectedRadioPropertyId').textContent =
+    selectedRadioPropertyId;
+  document.getElementById('result-property').textContent = '';
+}
+
+const pluck = (objs, key) => objs.map((obj) => obj[key]);
+
+function pluckProperties() {
+  handleRadioCheckedProperty();
+  document.getElementById('result-property').textContent = pluck(
+    users,
+    selectedKey
+  );
+}
+
+handleRadioCheckedProperty();
+
+//* 10. How to Insert an Element at a Certain Position ----------------------------------  */
+const arrayToInsertItem = [
+  'Ignacio',
+  'Santiago',
+  'Martin',
+  'Javier',
+  'Tatiana',
+];
+
+const insert = (arr, index, newItem) => [
+  ...arr.slice(0, index),
+  newItem,
+  ...arr.slice(index),
+];
+
+const inputElement = document.getElementById('inputElement');
+const arrPositionElement = document.getElementById('arrPosition');
+const selectedInsertId = document.getElementById('selectedInsertId');
+const resultInsert = document.getElementById('result-insert');
+
+const updateSelectedInsertId = () => {
+  const inputValue = inputElement.value.toString();
+  const positionValue = arrPositionElement.value;
+  selectedInsertId.textContent = inputValue + ' at position ' + positionValue;
+};
+
+inputElement.addEventListener('input', updateSelectedInsertId);
+arrPositionElement.addEventListener('input', updateSelectedInsertId);
+
+function insertElement() {
+  const inputValue = inputElement.value;
+  const positionValue = parseInt(arrPositionElement.value);
+
+  if (!inputValue || !positionValue) {
+    resultInsert.textContent = 'Both fields must be completed';
+    return;
+  }
+  const newArray = insert(arrayToInsertItem, positionValue - 1, inputValue);
+  resultInsert.textContent = newArray.join(', ');
 }

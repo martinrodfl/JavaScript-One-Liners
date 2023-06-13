@@ -5,10 +5,13 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+	<link rel="icon" type="image/png" href="favicon.png">
 	<link rel="stylesheet" href="css/styles.css" />
 	<link rel="stylesheet" href="css/light-dark-styles.css" />
+	<link rel="stylesheet" href="css/extras.css" />
 	<!-- Boxicons -->
 	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 	<title>One-Liners-JS</title>
 </head>
 
@@ -31,9 +34,18 @@
 						<i class='bx bx-link'></i>JavaScript One-Liners
 						to Use in Every Project</a>
 				</h6>
+
 				<div class="header-image">
-					<img src="images/header-image.png" alt="image" />
+					<a href="https://www.freecodecamp.org/news/javascript-one-liners-to-use-in-every-project/"
+						target="_blank"><img src="images/header-image.png" alt="image-header" id="header-image" /></a>
 				</div>
+				<p>
+					The freecodecamp article only aims to show the code (and that's fine) and doesn't address how it might be
+					applied, so in my learning path I try to show how these functions and concepts might be applied in a way that
+					you can interact with them and see them working in a practical way. In some cases I have used the sample code
+					exactly as it is in the article, and in other cases I have changed and added other things to make the example
+					work.
+				</p>
 			</div>
 		</header>
 
@@ -67,7 +79,8 @@
 				</p>
 				<input type="text" id="inputText" placeholder="Enter a word" maxlength="50" required />
 				<h3>Result: <span id="resultText" class="result-color"></span></h3>
-				<button class="btn-exercise" onclick="CapitalizeWord()">Capitalize</button>
+				<button class="btn-exercise" onclick="capitalizeWord()">
+					Capitalize</button>
 				<details class="details">
 					<summary>
 						<h5>
@@ -75,7 +88,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText1" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText1" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js1', event)">
 								<i class='bx bx-clipboard bx-tada'></i>
 							</button>
@@ -94,7 +107,8 @@
 				<input type="number" id="inputPercentageNumber" placeholder="Enter a percentage" maxlength="11" />
 				<input type="number" id="inputValueNumber" placeholder="Enter a total" maxlength="11" />
 				<h3>Result: <span id="resultPercentage" class="result-color"></span></h3>
-				<button class="btn-exercise" onclick=" CalculatePercent()">Percentage</button>
+				<button class="btn-exercise" onclick=" CalculatePercent()">
+					Percentage</button>
 				<details class="details">
 					<summary>
 						<h5>
@@ -191,7 +205,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText4" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText4" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js4')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -240,7 +254,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText5" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText5" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js5')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -266,7 +280,8 @@
 				<br />
 				<div class="array-object-equals">
 				</div>
-				<h3 class="result-object">Result:<span id="result-Equals" class="result-color"></span></h3>
+				<h3 class="result-object" id="equals-h3-height">Result:<span id="result-Equals" class="result-color"></span>
+				</h3>
 				<button class="btn-exercise" onclick="checkEquality()">
 					Check if <span id="selectedRadioEqualId"></span>
 				</button>
@@ -279,7 +294,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText6" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText6" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js6')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -294,8 +309,8 @@
 				<p>
 					Function that counts how many times the same element is repeated in an array.
 				</p>
-				<pre class="obj-exercise5">Array = ["Yes", "Yes", "No", "Yes", "No", "No", "Yes",];
-									</pre>
+				<pre class="obj-exercise5">Array = ["Yes", "Yes", "No", "Yes", "No", "No", "Yes"];
+			</pre>
 				<div class="radio">
 					<input type="radio" name="group5" id="Yes" onclick="HandleRadioOcurrences()" checked />
 					<label for="Yes">Yes</label>
@@ -315,7 +330,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText7" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText7" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js7')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -327,6 +342,21 @@
 			<!--* 8. How to Wait for a Certain Amount of Time -->
 			<article class="dark-mode">
 				<h3 class="article-title">8. How to Wait for a Certain Amount of Time</h3>
+
+				<p>Function to wait a certain time for something.<br />
+					In this case, the time entered is displayed as a countdown in milliseconds.<br />At the end, a finished
+					message is
+					triggered.</p>
+				<label for="seconds">Seconds</label>
+				<input type="number" name="seconds" id="seconds" placeholder="Enter seconds" />
+				<h3 class="result-object">Result:<span id="result-seconds" class="result-color"></span></h3>
+				<div>
+
+					<button class="btn-exercise" id="btnseconds" onclick="startStopContinueTimer()">
+						Start / Stop <span id="wait-seconds"></span>
+					</button>
+					<button class="btn-reset" onclick="resetTimer()">Reset</button>
+				</div>
 				<details class="details">
 					<summary>
 						<h5>
@@ -334,7 +364,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText8" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText8" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js8')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -346,6 +376,31 @@
 			<!--* 9. How to Use the Pluck Property from Array of Objects -->
 			<article class="dark-mode">
 				<h3 class="article-title">9. How to Use the Pluck Property from Array of Objects</h3>
+				<p>
+					The function maps over this array and returns only the values of the property that we specified.
+				</p>
+				<pre class="obj-exercise5">users = [
+
+{ name: "Abe", age: 45 }, 
+
+{ name: "Jennifer", age: 27 },
+
+{ name: 'Paul', age: 31 },
+
+];
+				</pre>
+				<div class="radio">
+					<input type="radio" name="group6" id="by names" onclick="handleRadioCheckedProperty()" checked />
+					<label for="by names">Name</label>
+				</div>
+				<div class="radio">
+					<input type="radio" name="group6" id="by ages" onclick="handleRadioCheckedProperty()" />
+					<label for="by ages">Age</label>
+				</div>
+				<h3 class="result-object">Result: <span id="result-property" class="result-color"></span></h3>
+				<button class="btn-exercise" onclick="pluckProperties();">
+					Pluck <span id="selectedRadioPropertyId"></span>
+				</button>
 				<details class="details">
 					<summary>
 						<h5>
@@ -353,7 +408,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText9" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText9" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js9')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -365,6 +420,25 @@
 			<!--* 10. How to Insert an Element at a Certain Position -->
 			<article class="dark-mode">
 				<h3 class="article-title">10. How to Insert an Element at a Certain Position</h3>
+				<p>
+					This function allows you to insert an element into this array and specify where it should be placed.
+				</p>
+				<pre class="obj-exercise5">initialArray = [
+
+"Ignacio", "Santiago", "Javier", "Martin", "Tatiana"
+
+];
+				</pre>
+				<input type="text" id="inputElement" placeholder="Enter a name" maxlength="10" required />
+				<input type="number" name="arrPosition" id="arrPosition" placeholder="Enter a position between 1 - 6" min="1"
+					max="6" />
+
+				<h3 class="result-object" id="insert-h3-height">Result: <span id="result-insert" class="result-color"></span>
+				</h3>
+				<button class="btn-exercise" onclick="insertElement()">
+					Insert <span id="selectedInsertId"></span>
+				</button>
+
 				<details class="details">
 					<summary>
 						<h5>
@@ -372,7 +446,7 @@
 					</summary>
 					<div class="summary-code">
 						<div class="div-btn-clipboard">
-							<span id="copiedText10" class="copiedText" style="display: none;">Copied! <span>!</span></span>
+							<span id="copiedText10" class="copiedText" style="display: none;">Copied <span>!</span></span>
 							<button id="" class="btn-clipboard" onclick="copyCodeToClipboard('js10')"><i
 									class='bx bx-clipboard bx-tada'></i></button>
 						</div>
@@ -383,7 +457,15 @@
 		</main>
 		<footer class="dark-mode">
 			<div class="footer-content">
-				<p>Developed by Martin R.</p>
+				<a href="https://github.com/martinrodfl/JavaScript-One-Liners" target="_blank">
+					<p>Code on Github </p><i class='bx bxl-github' id="github-icon"></i>
+				</a>
+				<a href="mailto:martinrodfl@gmail.com?Subject=Aplicacion%20Web" target="_blank">
+					<p>Contact </p><i class='bx bx-envelope' id="envelope-icon"></i>
+				</a>
+				<div class="develop-by">
+					<span>Developed by </span> <img class="my-logo" alt="my-logo" src="images/logoGreen.png" />
+				</div>
 			</div>
 		</footer>
 		<div class="progress-container">

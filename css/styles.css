@@ -42,7 +42,12 @@
 	scroll-behavior: smooth;
 }
 
-/* BODY ----------------------------*/
+.hiden {
+	/* display: none; */
+	visibility: hidden;
+}
+
+/*? BODY ----------------------------*/
 body {
 	margin: 0;
 	padding: 0;
@@ -65,7 +70,7 @@ header, nav, footer, article {
 	box-sizing: border-box;
 }
 
-/* HEADER */
+/*? HEADER */
 
 header {
 	grid-area: header;
@@ -89,6 +94,12 @@ header h1 {
 	margin: 0;
 }
 
+header h1::first-letter {
+	color: var(--accent-color);
+	font-size: 45px;
+
+}
+
 .header-content {
 	display: flex;
 	flex-direction: column;
@@ -109,16 +120,20 @@ header h1 {
 	justify-content: center;
 }
 
-.header-image>img {
+.header-image img {
 	width: 100%;
 	border-radius: 5px;
+}
+
+.header-image img:hover {
+	transform: scale(1.3);
 }
 
 .bx-link {
 	margin-right: 5px;
 }
 
-/* NAV ----------------------------*/
+/*? NAV ----------------------------*/
 
 nav {
 	grid-area: nav;
@@ -133,7 +148,7 @@ nav {
 	height: 100%;
 }
 
-/* MAIN ----------------------------*/
+/*? MAIN ----------------------------*/
 main {
 	grid-area: main;
 	display: flex;
@@ -191,10 +206,38 @@ input[type="text"], input[type="number"] {
 	background-color: var(--btn-exercise-color-darker);
 }
 
+.btn-reset {
+	max-width: fit-content;
+	height: 27px;
+	border: none;
+	border-radius: 3px;
+	padding: 0 10%;
+	background-color: rgb(167, 167, 167);
+	color: var(--text-color);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+}
+
 .result-color {
 	color: rgb(216, 113, 29);
 	margin-left: 10px;
 	min-height: 54px;
+}
+
+.green-color {
+	color: var(--accent-color);
+}
+
+.orange-color {
+	max-width: fit-content;
+	height: 27px;
+	border: none;
+	border-radius: 3px;
+	padding: 0 10%;
+	background-color: rgb(216, 113, 29);
+	color: var(--text-color);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
 }
 
 .result-color ul {
@@ -224,7 +267,19 @@ input[type="text"], input[type="number"] {
 	color: var(--accent-color);
 }
 
-/* DETAILS-SUMMARY ----------------------------*/
+#wait-seconds {
+	width: 50px;
+}
+
+#insert-h3-height {
+	min-height: 48px;
+}
+
+#equals-h3-height {
+	min-height: 48px;
+}
+
+/*? DETAILS-SUMMARY ----------------------------*/
 
 details {
 	overflow: hidden;
@@ -254,7 +309,6 @@ summary {
 	-webkit-list-style: none;
 	-moz-list-style: none;
 	display: flex;
-	min-height: 60px;
 }
 
 summary h5 {
@@ -266,16 +320,6 @@ summary h5 {
 	line-height: 2.6;
 	font-size: .7rem;
 }
-
-/* summary h5:hover {
-	color: rgb(54, 54, 54);
-	background-color: rgb(19, 172, 154);
-	border-radius: 5px;
-} */
-
-/* summary:hover {
-	color: rgb(19, 172, 154);
-} */
 
 summary:focus {
 	color: transparent;
@@ -368,99 +412,6 @@ pre {
 	cursor: pointer;
 }
 
-/* FOOTER ----------------------------*/
-footer {
-	grid-area: footer;
-	padding: 5px;
-	min-height: 50px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.footer-content {
-	font-size: .8rem;
-}
-
-/* EXTRAS ----------------------------*/
-
-.progress-container {
-	display: flex;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	z-index: 9999;
-	background-color: transparent !important;
-}
-
-#scrollProgress {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 1%;
-	z-index: 9999;
-}
-
-progress[value]::-webkit-progress-value {
-	background-image:
-		-webkit-linear-gradient(90deg,
-			transparent 33%,
-			rgba(0, 0, 0, .1) 33%,
-			rgba(0, 0, 0, .1) 66%, transparent 66%),
-		-webkit-linear-gradient(top,
-			rgba(12, 12, 12, 0.25),
-			rgba(0, 0, 0, .25)),
-		-webkit-linear-gradient(left, rgb(3, 3, 3), rgb(8, 206, 156));
-
-	/* border-radius: 2px; */
-	/* background-size: 35px 20px, 100% 100%, 100% 100%; */
-
-}
-
-progress[value]::-moz-progress-bar {
-	background-image:
-		-moz-linear-gradient(90deg,
-			transparent 33%,
-			rgba(0, 0, 0, 0.1) 33%,
-			rgba(0, 0, 0, 0.1) 66%,
-			transparent 66%),
-
-		-moz-linear-gradient(top,
-			rgba(12, 12, 12, 0.25),
-			rgba(0, 0, 0, .25)),
-
-		-moz-linear-gradient(left,
-			rgb(3, 3, 3),
-			rgb(8, 206, 156));
-
-	/* border-radius: 2px; */
-	/* background-size: 35px 20px, 100% 100%, 100% 100%; */
-}
-
-.scrollToTop {
-	display: flex;
-	width: 30px;
-	height: 30px;
-	justify-content: center;
-	align-items: center;
-	position: fixed;
-	bottom: 1rem;
-	right: 1rem;
-	z-index: 9999;
-	background-color: rgb(70, 70, 70, 0.4);
-	border-radius: 50%;
-	border: 1px solid var(--accent-color);
-	color: var(--accent-color);
-}
-
-.hiden {
-	display: none;
-}
-
 .array-object-equals {
 	display: flex;
 }
@@ -471,15 +422,88 @@ progress[value]::-moz-progress-bar {
 	color: var(--text-color);
 }
 
+/*? FOOTER ----------------------------*/
 
-/* Media query para pantallas a partir de 820px */
+footer {
+	grid-area: footer;
+	padding: 5px;
+	min-height: 62.82px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.footer-content {
+	font-size: .8rem;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	gap: 5px;
+}
+
+.footer-content p, a {
+	margin: 0 auto;
+	display: inline;
+}
+
+#envelope-icon {
+	position: relative;
+	top: 2px;
+}
+
+#github-icon {
+	position: relative;
+	top: 1px;
+}
+
+.develop-by {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 17px;
+	cursor: pointer;
+}
+
+.develop-by p {
+	display: flex;
+}
+
+.develop-by span {
+	color: var(--accent-color);
+}
+
+.my-logo {
+	width: 20px;
+}
+
+.contenedor-imagen {
+	position: relative;
+	display: inline-block;
+}
+
+
+
+.develop-by:hover img {
+	/* transform: ; */
+	transition: transform 0.3s ease;
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: scale(25);
+}
+
+
+
+/*? MEDIA QUERIES */
+
+/* ----------------------- 820px ---------------*/
 @media (min-width: 820px) {
 	.grid-container {
 		display: grid;
 		grid-template-columns: 20% 1fr;
-		/* Dos columnas: nav y main */
 		grid-template-rows: auto 1fr auto;
-		/* Misma estructura de filas */
 		grid-template-areas:
 			"header header"
 			"nav main"
@@ -512,6 +536,7 @@ progress[value]::-moz-progress-bar {
 	}
 }
 
+/* ---------------------------- 1200px ------------------------------*/
 @media (min-width: 1200px) {
 	.grid-container {
 		max-width: 1200px;
@@ -534,11 +559,12 @@ progress[value]::-moz-progress-bar {
 	}
 
 	pre {
-		font-size: 1.3rem;
+		font-size: 1rem;
 	}
 
 	.obj-exercise5 {
 		font-size: 1.1rem;
 	}
+
 
 }
