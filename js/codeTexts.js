@@ -1,9 +1,29 @@
 //?---------------------------- 1 */
 
-const js1 =
-  'const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)};';
+const js1 = `//* Original *//`;
+const js1_2 =
+  'const capitalize = (str) => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;';
 
-document.getElementById('js1').innerHTML = js1;
+const js1_3 = `
+//* -------------- My Implementation -------------- *//
+function capitalizeWord() {
+  const inputValueText = document.getElementById('inputText').value;
+  if (!inputValueText) {
+    document.getElementById('resultText').textContent = 'Complete the field';
+    return;
+  }
+  const capitalizedWord =
+    inputValueText.charAt(0).toUpperCase() +
+    inputValueText.slice(1).toLowerCase();
+
+  document.getElementById('resultText').textContent = capitalizedWord;
+}
+`;
+
+document.getElementById('js1').innerHTML = `${js1}
+${js1_2}
+
+${js1_3}`;
 
 //?---------------------------- 2 */
 
@@ -13,7 +33,28 @@ const calculatePercent = (value, total) => Math.round((value / total) * 100)
 
 //* ---------------- My Implementation ---------------- *//
 
-const calculate = (inputValueNumber, inputPercentageNumber) => {return (inputValueNumber * inputPercentageNumber) / 100};`;
+function CalculatePercent() {
+  let inputPercentageNumber = document.getElementById(
+    'inputPercentageNumber'
+  ).value;
+  let inputValueNumber = document.getElementById('inputValueNumber').value;
+
+  const calculate = (inputValueNumber, inputPercentageNumber) => {
+    return (inputValueNumber * inputPercentageNumber) / 100;
+  };
+
+  if (!inputPercentageNumber || !inputValueNumber) {
+    document.getElementById('resultPercentage').textContent =
+      'Complete both fields';
+    return;
+  }
+
+  document.getElementById('resultPercentage').innerHTML = calculate(
+    inputPercentageNumber,
+    inputValueNumber
+  );
+}
+`;
 
 document.getElementById('js2').innerHTML = js2;
 
@@ -26,7 +67,38 @@ const getRandomItem = (items) =>  items[Math.floor(Math.random() * items.length)
 
 //* ---------------- My Implementation ---------------- *//
 
-items = array to be entered
+var items = ['Martin','Andrea','Carlos','Sandra','Pedro','Maria','Juan','Patricia'];
+
+function HandleCheckboxChange(checkboxId) {
+  let checkboxes = document.getElementsByName('group');
+  checkboxes.forEach(function (checkbox) {
+    checkbox.checked = checkbox.id === checkboxId;
+  });
+
+  if (checkboxId === 'Names') {
+    items = ['Martin','Andrea', 'Carlos', 'Sandra', 'Pedro','Maria', 'Juan','Patricia'];
+  } else if (checkboxId === 'Numbers') {
+    items = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  } else if (checkboxId === 'Colors') {
+    items = ['Blue', 'White', 'Red', 'Green', 'Gray', 'Pink'];
+  }
+
+  showSelectedCheckboxId();
+  return checkboxId;
+}
+
+function showSelectedCheckboxId() {
+  let checkboxes = document.getElementsByName('group');
+  let selectedCheckboxId = '';
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      selectedCheckboxId = checkbox.id;
+    }
+  });
+  document.getElementById('selectedCheckboxId').innerHTML = selectedCheckboxId;
+}
+
+let lastSelectedItem = '';
 
 function randomItem() {
   const itemsCopy = [...items];
@@ -36,20 +108,134 @@ function randomItem() {
   lastSelectedItem = getRandomItem;
   document.getElementById('resultRandom').innerHTML = getRandomItem;
 }
+
+showSelectedCheckboxId();
 `;
 
 document.getElementById('js3').innerHTML = js3;
 
 //?---------------------------- 4 */
 
-const js4 = 'const removeDuplicates = (items) => [...new Set(items)];';
+const js4 = `//* Original *//
+const removeDuplicates = (items) => [...new Set(items)];
+
+
+//* ---------------- My Implementation ---------------- *//
+
+let itemsDuplicates = ['Martin', 'Martin', 'Maria', 'Juan', 'Andrea', 'Andrea'];
+var selectedCheckboxId = '';
+
+function HandleCheckboxRepeat(checkboxId) {
+  const checkboxes = document.getElementsByName('group2');
+  checkboxes.forEach(function (checkbox) {
+    checkbox.checked = checkbox.id === checkboxId;
+  });
+  if (checkboxId === 'Names-Duplicates') {
+    itemsDuplicates = itemsDuplicates;
+  } else if (checkboxId === 'Numbers-Duplicates') {
+    itemsDuplicates = [
+      '0','0','1','2','3','4','5','5','6','7','8', '8','9'];
+  } else if (checkboxId === 'Colors-Duplicates') {
+    itemsDuplicates = ['Blue','Blue','White','Red','Green','Green','Gray','Pink','Pink'];
+  }
+  showSelectedCheckboxIdRepeat();
+  return checkboxId;
+}
+
+function removeHyphen(string) {
+  const hyphenIndex = string.indexOf('-');
+  if (hyphenIndex !== -1) {
+    string = string.slice(0, hyphenIndex) + ' ' + string.slice(hyphenIndex + 1);
+  }
+  return string;
+}
+
+function showSelectedCheckboxIdRepeat() {
+  const checkboxes = document.getElementsByName('group2');
+  selectedCheckboxId = '';
+  checkboxes.forEach(function (checkbox) {
+    if (checkbox.checked) {
+      selectedCheckboxId = checkbox.id;
+    }
+  });
+  document.getElementById('selectedCheckboxIdDuplicates').innerHTML =
+    removeHyphen(selectedCheckboxId);
+}
+
+let initName = selectedCheckboxId;
+
+function NoRepeatItems() {
+  if (itemsDuplicates === '') {
+    alert('You must select a checkbox');
+    return;
+  }
+
+  const removeDuplicates = (items) => [...new Set(items)];
+  document.getElementById('result-Duplicates').innerHTML =
+    removeDuplicates(itemsDuplicates);
+}
+
+showSelectedCheckboxIdRepeat();
+   `;
 
 document.getElementById('js4').innerHTML = js4;
 
 //?---------------------------- 5 */
 
-const js5 =
-  'const sortBy = (arr, key) => arr.sort((a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);';
+const js5 = `//* Original *//
+  const sortBy = (arr, key) => arr.sort((a, b) => a[key] > b[key] ? 1 : a[key] < b[key] ? -1 : 0);
+  
+
+//* ---------------- My Implementation ---------------- *//
+  
+let lessons = [
+  {position: 0,name: 'Intro',duration: 18,},
+  {position: 1,name: 'Basics',duration: 12,},
+  {position: 2,name: 'Advanced',duration: 15,},
+];
+
+let selectedRadioId = 'position';
+
+function HandleRadioChecked() {
+  const radios = document.getElementsByName('group3');
+  radios.forEach(function (radio) {
+    if (radio.checked) {
+      selectedRadioId = radio.id;
+    }
+  });
+
+  document.getElementById('selectedRadioSortedId').innerHTML = selectedRadioId;
+}
+
+function SortLessons() {
+  if (selectedRadioId === '') {
+    alert('You must select a radio button');
+    return;
+  }
+
+  let sortedLessons = lessons.sort((a, b) =>
+    a[selectedRadioId] > b[selectedRadioId]
+      ? 1
+      : a[selectedRadioId] < b[selectedRadioId]
+      ? -1
+      : 0
+  );
+
+  let result = document.getElementById('result-Sort');
+  result.innerHTML = '';
+
+  let ul = document.createElement('ul');
+  sortedLessons.forEach(function (lesson) {
+    let li = document.createElement('li');
+    li.textContent = JSON.stringify(lesson);
+    ul.appendChild(li);
+  });
+
+  result.appendChild(ul);
+}
+
+HandleRadioChecked();
+  `;
 
 document.getElementById('js5').innerHTML = js5;
 
@@ -61,10 +247,72 @@ const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 //* ---------------- My Implementation ---------------- *//
 
-let isEqual = value1 === value3 && value2 === value4;
-  resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';`;
+`;
+const js6_2 = `
+let selectedRadioEqualsId = 'Object';
 
-document.getElementById('js6').innerHTML = js6;
+function HandleRadioCheckedEquals() {
+  const radios = document.getElementsByName('group4');
+  radios.forEach(function (radio) {
+    if (radio.checked) {
+      selectedRadioEqualsId = radio.id;
+    }
+  });
+
+  document.getElementById('selectedRadioEqualId').innerHTML =
+    selectedRadioEqualsId;
+}
+
+// const inputObject =  * see in github repository  
+// const inputArray =  * see in github repository  
+
+function ShowObject() {
+  HandleRadioCheckedEquals();
+  let objectEqualDiv = document.querySelector('.array-object-equals');
+  objectEqualDiv.innerHTML = inputObject;
+}
+
+function ShowArray() {
+  HandleRadioCheckedEquals();
+  let arrayEqualDiv = document.querySelector('.array-object-equals');
+  arrayEqualDiv.innerHTML = inputArray;
+}
+
+function checkEquality() {
+  var selectedRadio = document.querySelector('input[name="group4"]:checked').id;
+  var selectedRadioEqualId = document.getElementById('selectedRadioEqualId');
+  let resultEquals = document.getElementById('result-Equals');
+
+  let value1, value2, value3, value4;
+
+  if (selectedRadio === 'Object') {
+    value1 = document.getElementById('obj1').value;
+    value2 = document.getElementById('obj2').value;
+    value3 = document.getElementById('obj3').value;
+    value4 = document.getElementById('obj4').value;
+    selectedRadioEqualId.textContent = 'Objects';
+  } else if (selectedRadio === 'Array') {
+    value1 = document.getElementById('arr1').value;
+    value2 = document.getElementById('arr2').value;
+    value3 = document.getElementById('arr3').value;
+    value4 = document.getElementById('arr4').value;
+    selectedRadioEqualId.textContent = 'Arrays';
+  }
+
+  if (!value1 || !value2 || !value3 || !value4) {
+    resultEquals.textContent = 'All fields must be completed';
+  } else {
+    let isEqual = value1 === value3 && value2 === value4;
+    resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';
+  }
+}
+
+ShowObject();
+`;
+
+document.getElementById('js6').innerHTML = `${js6}
+${js6_2}
+`;
 
 //?---------------------------- 7 */
 
@@ -75,22 +323,39 @@ const countOccurrences = (arr, value) =>
 
 //* ---------------- My Implementation ---------------- *//
 
+const array = ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'];
+let selectedRadioOcurrencesId = 'Yes';
+document.getElementById('selectedRadioOcurrencies').innerHTML =
+  selectedRadioOcurrencesId;
+
 const countOccurrences = (arr, value) =>
   arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
 
-  function HandleOcurrences() {
-    if (selectedRadioOcurrencesId === 'Yes') {
-      document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
-        ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
-        'Yes'
-      );
-    } else {
-      document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
-        ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
-        'No'
-      );
+function HandleRadioOcurrences() {
+  const radios = document.getElementsByName('group5');
+  radios.forEach(function (radio) {
+    if (radio.checked) {
+      selectedRadioOcurrencesId = radio.id;
     }
+  });
+
+  document.getElementById('selectedRadioOcurrencies').innerHTML =
+    selectedRadioOcurrencesId;
+}
+
+function HandleOcurrences() {
+  if (selectedRadioOcurrencesId === 'Yes') {
+    document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+      ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+      'Yes'
+    );
+  } else {
+    document.getElementById('result-Ocurrences').innerHTML = countOccurrences(
+      ['Yes', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes'],
+      'No'
+    );
   }
+}
 `;
 
 document.getElementById('js7').innerHTML = js7;
@@ -106,6 +371,7 @@ const js8 = `//* Original *//
 
 const resultSeconds = document.getElementById('result-seconds');
 const btnSeconds = document.getElementById('btnseconds');
+const secondsInput = document.getElementById('seconds');
 
 let timer = null;
 let startTime = null;
@@ -181,7 +447,6 @@ function resetTimer() {
 
   resultSeconds.textContent = '0';
 
-  // Restablecer todas las variables a null
   startTime = null;
   elapsedTime = null;
   countdown = null;

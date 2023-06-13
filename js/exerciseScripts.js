@@ -310,9 +310,6 @@ function checkEquality() {
     selectedRadioEqualId.textContent = 'Arrays';
   }
 
-  // let isEqual = value1 === value3 && value2 === value4;
-  // resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';
-
   if (!value1 || !value2 || !value3 || !value4) {
     resultEquals.textContent = 'All fields must be completed';
   } else {
@@ -360,9 +357,6 @@ function HandleOcurrences() {
 }
 
 //? 8. How to Wait for a Certain Amount of Time ----------------------------------  */
-
-// const wait = async (milliseconds) =>
-//   new Promise((resolve) => setTimeout(resolve, milliseconds));
 
 const resultSeconds = document.getElementById('result-seconds');
 const btnSeconds = document.getElementById('btnseconds');
@@ -451,7 +445,6 @@ function resetTimer() {
 }
 
 function showMessage() {
-  sound(0.2);
   resultSeconds.classList.remove('green-color');
   resultSeconds.textContent = 'Finished!';
 }
