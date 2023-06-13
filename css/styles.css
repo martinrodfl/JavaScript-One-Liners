@@ -341,7 +341,7 @@ details[open] summary::before {
 }
 
 pre {
-	max-width: 918px;
+	/* max-width: 918px; */
 	border: 1px solid rgb(70, 70, 70);
 	border-radius: 3px;
 	padding: 20px 5px;
@@ -515,6 +515,10 @@ footer {
 
 	.obj-exercise5 {
 		font-size: .8rem;
+	}
+
+	pre {
+		font-size: 16px;
 	}
 }
 
