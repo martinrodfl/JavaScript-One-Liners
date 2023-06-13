@@ -1,9 +1,16 @@
 //*? IIFE position page in top ---------------------------------------------- */
-// (function () {
-//   window.onload = function () {
-//     window.scrollTo(0, 0);
-//   };
-// })();
+//Posiciona al inicio y vacia los inputs
+(function () {
+  window.onload = function () {
+    window.scrollTo(0, 0);
+    var inputs = document.getElementsByTagName('input');
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].type === 'text' || inputs[i].type === 'number') {
+        inputs[i].value = '';
+      }
+    }
+  };
+})();
 
 window.addEventListener('scroll', function () {
   let maxScrollHeight =
@@ -11,7 +18,6 @@ window.addEventListener('scroll', function () {
   var scrolledPercentage = (window.scrollY / maxScrollHeight) * 100;
   scrollProgress.value = scrolledPercentage;
   const arrowToTop = document.getElementById('scrollToTop');
-  // console.log(scrolledPercentage);
   if (scrolledPercentage > 10) {
     arrowToTop.classList.remove('hiden');
   } else {
@@ -35,7 +41,6 @@ function copyCodeToClipboard(elementId) {
   const clickedElement = event.currentTarget;
   const clickedElementId = clickedElement.previousElementSibling.id;
 
-  // console.log(clickedElementId);
   const copiedText = document.getElementById(clickedElementId);
 
   if (copiedText) {
@@ -44,7 +49,7 @@ function copyCodeToClipboard(elementId) {
     setTimeout(() => {
       copiedText.style.display = 'none';
     }, 2000);
-
+    sound(0.2);
     copiedText.classList.add('vibrate');
 
     setTimeout(() => {
@@ -90,12 +95,12 @@ window.addEventListener('scroll', function () {
 //*? Togggle switch color mode ------------------------------------------------- */
 
 function toggleColorMode() {
+  sound(0.2);
   let switchColor = document.getElementById('switch-color-mode');
   const elementsLights = document.querySelectorAll(
     'body, header, nav, article, footer'
   );
   const elementsDark = document.querySelectorAll('main,.grid-container');
-  // console.log('switchColor: ', switchColor.checked);
   if (switchColor.checked === true) {
     elementsLights.forEach((element) => {
       element.classList.add('light-mode');
@@ -119,3 +124,11 @@ function toggleColorMode() {
 
 const switchColor = document.getElementById('switch-color-mode');
 switchColor.addEventListener('change', toggleColorMode);
+
+//*? Sound ------------------------------------------------- */
+
+function sound(volume) {
+  var audio = new Audio('../audio/audio.mp3');
+  audio.volume = volume;
+  audio.play();
+}

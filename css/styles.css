@@ -261,6 +261,10 @@ input[type="text"], input[type="number"] {
 	width: 50px;
 }
 
+#insert-h3-height {
+	min-height: 48px;
+}
+
 /*? DETAILS-SUMMARY ----------------------------*/
 
 details {
@@ -409,7 +413,7 @@ pre {
 footer {
 	grid-area: footer;
 	padding: 5px;
-	min-height: 50px;
+	min-height: 62.82px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -444,16 +448,38 @@ footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	min-height: 17px;
+	cursor: pointer;
 }
 
 .develop-by p {
 	display: flex;
 }
 
+.develop-by span {
+	color: var(--accent-color);
+}
+
 .my-logo {
 	width: 20px;
-
 }
+
+.contenedor-imagen {
+	position: relative;
+	display: inline-block;
+}
+
+
+
+.develop-by:hover img {
+	/* transform: ; */
+	transition: transform 0.3s ease;
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: scale(30);
+}
+
 
 
 /*? MEDIA QUERIES */
@@ -525,5 +551,6 @@ footer {
 	.obj-exercise5 {
 		font-size: 1.1rem;
 	}
+
 
 }

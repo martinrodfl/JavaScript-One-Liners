@@ -1,11 +1,15 @@
 //? 1. How to Capitalize Text -------------------------------------------  */
-function CapitalizeWord() {
-  let inputValueText;
-  inputValueText = document.getElementById('inputText').value.toLowerCase();
-  let capitalizedWord =
-    inputValueText.charAt(0).toUpperCase() + inputValueText.slice(1);
+function capitalizeWord() {
+  const inputValueText = document.getElementById('inputText').value;
+  if (!inputValueText) {
+    document.getElementById('resultText').textContent = 'Complete the field';
+    return;
+  }
+  const capitalizedWord =
+    inputValueText.charAt(0).toUpperCase() +
+    inputValueText.slice(1).toLowerCase();
 
-  document.getElementById('resultText').innerHTML = capitalizedWord;
+  document.getElementById('resultText').textContent = capitalizedWord;
 }
 
 //? 2. How to Calculate Percent ------------------------------------------- */
@@ -18,6 +22,12 @@ function CalculatePercent() {
   const calculate = (inputValueNumber, inputPercentageNumber) => {
     return (inputValueNumber * inputPercentageNumber) / 100;
   };
+
+  if (!inputPercentageNumber || !inputValueNumber) {
+    document.getElementById('resultPercentage').textContent =
+      'Complete both fields';
+    return;
+  }
 
   document.getElementById('resultPercentage').innerHTML = calculate(
     inputPercentageNumber,
@@ -300,8 +310,15 @@ function checkEquality() {
     selectedRadioEqualId.textContent = 'Arrays';
   }
 
-  let isEqual = value1 === value3 && value2 === value4;
-  resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';
+  // let isEqual = value1 === value3 && value2 === value4;
+  // resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';
+
+  if (!value1 || !value2 || !value3 || !value4) {
+    resultEquals.textContent = 'All fields must be completed';
+  } else {
+    let isEqual = value1 === value3 && value2 === value4;
+    resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';
+  }
 }
 
 ShowObject();
@@ -434,11 +451,12 @@ function resetTimer() {
 }
 
 function showMessage() {
+  sound(0.2);
   resultSeconds.classList.remove('green-color');
   resultSeconds.textContent = 'Finished!';
 }
 
-//todo 9. How to Use the Pluck Property from Array of Objects ----------------------------------  */
+//? 9. How to Use the Pluck Property from Array of Objects ----------------------------------  */
 
 const users = [
   { name: 'Abe', age: 45 },
@@ -470,3 +488,44 @@ function pluckProperties() {
 }
 
 handleRadioCheckedProperty();
+
+//* 10. How to Insert an Element at a Certain Position ----------------------------------  */
+const arrayToInsertItem = [
+  'Ignacio',
+  'Santiago',
+  'Martin',
+  'Javier',
+  'Tatiana',
+];
+
+const insert = (arr, index, newItem) => [
+  ...arr.slice(0, index),
+  newItem,
+  ...arr.slice(index),
+];
+
+const inputElement = document.getElementById('inputElement');
+const arrPositionElement = document.getElementById('arrPosition');
+const selectedInsertId = document.getElementById('selectedInsertId');
+const resultInsert = document.getElementById('result-insert');
+
+const updateSelectedInsertId = () => {
+  const inputValue = inputElement.value.toString();
+  const positionValue = arrPositionElement.value;
+  selectedInsertId.textContent = inputValue + ' at position ' + positionValue;
+};
+
+inputElement.addEventListener('input', updateSelectedInsertId);
+arrPositionElement.addEventListener('input', updateSelectedInsertId);
+
+function insertElement() {
+  const inputValue = inputElement.value;
+  const positionValue = parseInt(arrPositionElement.value);
+
+  if (!inputValue || !positionValue) {
+    resultInsert.textContent = 'Both fields must be completed';
+    return;
+  }
+  const newArray = insert(arrayToInsertItem, positionValue - 1, inputValue);
+  resultInsert.textContent = newArray.join(', ');
+}

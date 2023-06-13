@@ -10,7 +10,9 @@ document.getElementById('js1').innerHTML = js1;
 const js2 = `//* Original *//
 const calculatePercent = (value, total) => Math.round((value / total) * 100)
 
-//* My Implementation *//
+
+//* ---------------- My Implementation ---------------- *//
+
 const calculate = (inputValueNumber, inputPercentageNumber) => {return (inputValueNumber * inputPercentageNumber) / 100};`;
 
 document.getElementById('js2').innerHTML = js2;
@@ -22,7 +24,7 @@ const js3 = `//* Original *//
 const getRandomItem = (items) =>  items[Math.floor(Math.random() * items.length)];
 
 
-//* My Implementation *//
+//* ---------------- My Implementation ---------------- *//
 
 items = array to be entered
 
@@ -56,7 +58,9 @@ document.getElementById('js5').innerHTML = js5;
 const js6 = `//* Original *//
 const isEqual = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
-//* My Implementation *//
+
+//* ---------------- My Implementation ---------------- *//
+
 let isEqual = value1 === value3 && value2 === value4;
   resultEquals.textContent = isEqual ? 'EQUALS' : 'NOT EQUALS';`;
 
@@ -68,7 +72,9 @@ const js7 = `//* Original *//
 const countOccurrences = (arr, value) =>
   arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
 
-//* My Implementation *//
+
+//* ---------------- My Implementation ---------------- *//
+
 const countOccurrences = (arr, value) =>
   arr.reduce((a, v) => (v === value ? a + 1 : a), 0);
 
@@ -95,7 +101,9 @@ const js8 = `//* Original *//
 // const wait = async (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 // wait(2000).then(() => yourFunction());
 
-//* My Implementation *//
+
+//* ---------------- My Implementation ---------------- *//
+
 const resultSeconds = document.getElementById('result-seconds');
 const btnSeconds = document.getElementById('btnseconds');
 
@@ -119,16 +127,13 @@ function startStopContinueTimer() {
   }
 
   if (timer) {
-    // El temporizador está en marcha, se detiene
     stopTimer();
     return;
   }
 
   if (!startTime || elapsedTime >= countdown) {
-    // El temporizador no se ha iniciado previamente o ya ha alcanzado el tiempo límite
     initializeTimer(seconds);
   } else {
-    // El temporizador se ha detenido previamente, se reanuda desde el tiempo en que se detuvo
     resumeTimer();
   }
 
@@ -198,7 +203,7 @@ const js9 = `//* Original *//
 // pluck(users, 'name');
 
 
-//* My Implementation *//
+//* ---------------- My Implementation ---------------- *//
 
 const users = [
   { name: 'Abe', age: 45 },
@@ -236,6 +241,51 @@ document.getElementById('js9').innerHTML = js9;
 
 //?---------------------------- 10 */
 
-const js10 = '';
+const js10 = `//* Original *//
+// const insert = (arr, index, newItem) => [...arr.slice(0, index),newItem,...arr.slice(index),];
+
+
+//* ---------------- My Implementation ---------------- *//
+
+const arrayToInsertItem = [
+  'Ignacio',
+  'Santiago',
+  'Martin',
+  'Javier',
+  'Tatiana',
+];
+
+const insert = (arr, index, newItem) => [
+  ...arr.slice(0, index),
+  newItem,
+  ...arr.slice(index),
+];
+
+const inputElement = document.getElementById('inputElement');
+const arrPositionElement = document.getElementById('arrPosition');
+const selectedInsertId = document.getElementById('selectedInsertId');
+const resultInsert = document.getElementById('result-insert');
+
+const updateSelectedInsertId = () => {
+  const inputValue = inputElement.value.toString();
+  const positionValue = arrPositionElement.value;
+  selectedInsertId.textContent = inputValue + ' at position ' + positionValue;
+};
+
+inputElement.addEventListener('input', updateSelectedInsertId);
+arrPositionElement.addEventListener('input', updateSelectedInsertId);
+
+function insertElement() {
+  const inputValue = inputElement.value;
+  const positionValue = parseInt(arrPositionElement.value);
+
+  if (!inputValue || !positionValue) {
+    resultInsert.textContent = 'Both fields must be completed';
+    return;
+  }
+  const newArray = insert(arrayToInsertItem, positionValue - 1, inputValue);
+  resultInsert.textContent = newArray.join(', ');
+}
+`;
 
 document.getElementById('js10').innerHTML = js10;
